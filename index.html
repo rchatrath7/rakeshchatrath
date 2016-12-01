@@ -7,17 +7,39 @@
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
     <link rel="stylesheet" href="https://s3.amazonaws.com/rakeshchatrath/css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://s3.amazonaws.com/rakeshchatrath/js/app.js"></script>
 </head>
 <body>
     <div class="home-container">
         <div class="centered-container">
             <div class="welcome-card">
-                <h1><strong>Welcome.</strong></h1>
+                <h1><strong>Welcome</strong></h1>
                 <p>
-                    This website will become a personal website for Rakesh Chatrath in due time. For now, check out some of my favorite
-                    things.
+                    This website will become a personal website for Rakesh Chatrath in due time. For now, checkout some things I think are super cool.
                 </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/vVii-Tqbbbw" frameborder="0" allowfullscreen></iframe>
+                <!--<iframe width="1280" height="720" src="https://www.youtube.com/embed/videoseries?list=PLQMVnqe4XbictUtFZK1-gBYvyUzTWJnOk" frameborder="0" allowfullscreen></iframe>-->
+            </div>
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <a data-flickr-embed="true" data-context="true"  href="https://www.flickr.com/photos/jarcorboi/31127595285/in/photostream/" title="Rocks">
+                        <img src="https://c6.staticflickr.com/6/5728/31127595285_d4316c3fc5_c.jpg" width="800" height="534" alt="Rocks"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                    <p>I like photography, check out some of these cool photos I found online.</p>
+                </div>
+                <div class="mySlides fade">
+                    <iframe width="800" height="543" src="https://www.youtube.com/embed/videoseries?list=PLQMVnqe4XbictUtFZK1-gBYvyUzTWJnOk" frameborder="0" allowfullscreen></iframe>
+                    <p>This is one of my favorite videoseries concerning tech.</p>
+                </div>
+                <div class="mySlides fade">
+                    <a data-flickr-embed="true"  href="https://www.flickr.com/photos/mc_wang/15766296247/in/photolist-q2dozV-bwgHti-hXj2bg-z62yX-H8swyZ-bq6FP2-8z531y-bEoJBw-ovZ5Xh-npYJeK-8vh22s-4Fj27y-eGFLPW-4xXbkh-5xj3M1-fcn5jV-p4YNHU-9E3Gnw-5fvXeS-8SWe27-5c9PH6-beH3h4-9DLJtJ-ag6hh2-5zjQ8b-ag6goK-cT9uuN-aaF23d-pUJbKZ-kR4C5h-cJGwSd-J5ap8N-chFnA-9jgve2-hWZC9S-2mPo5-4xSWiT-2hE3x-hXj2XX-54nueb-fAmk6h-7PHpA5-9TfY8W-qVbk3r-52FnPZ-iLyeG-cvM3CS-47Gpqs-ajWW9F-54ighn" title="Corgi"><img src="https://c8.staticflickr.com/8/7490/15766296247_1535182a6e_c.jpg" width="800" height="534" alt="Corgi"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                    <p>Here's a cute corgi, because why not.</p>
+                </div>
+            </div>
+            <br>
+
+            <div style="text-align: center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
             <div class="footer">
                 <a href="mailto:rchatrath7@pitt.edu"><i class="fa fa-envelope"></i></a>
@@ -29,4 +51,9 @@
         </div>
     </div>
 </body>
+<script>
+    (function(){
+        showSlides();
+    })();
+</script>
 </html>
