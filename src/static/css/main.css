@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "Decima Nova";
+  src: url("../fonts/Decima Nova/Decima Nova.ttf") format("truetype");
+  font-weight: normal;
+  font-size: normal;
+}
+@font-face {
+  font-family: "Decima Mono";
+  src: url("../fonts/Decima Mono/Decima Mono.ttf") format("truetype");
+  font-weight: normal;
+  font-size: normal;
+}
+@font-face {
+  font-family: "Decima Pro";
+  src: url("../fonts/Decima Pro/Decima Pro.ttf") format("truetype");
+  font-weight: normal;
+  font-size: normal;
+}
+/* line 21, ../sass/partials/_typography.sass */
+body {
+  font-family: "Decima Nova", sans-serif;
+  font-weight: 200;
+  color: #405469;
+}
+
+/* line 26, ../sass/partials/_typography.sass */
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 30, ../sass/partials/_typography.sass */
+h1 {
+  font-size: 3.5em;
+}
+
+/* line 32, ../sass/partials/_typography.sass */
+h2 {
+  font-size: 2em;
+}
+
+/* line 34, ../sass/partials/_typography.sass */
+h3 {
+  font-size: 1.5em;
+}
+
+/* line 37, ../sass/partials/_typography.sass */
+.home-title-header {
+  font-family: "Decima Pro", sans-serif;
+  font-weight: 400;
+}
+
+/* line 41, ../sass/partials/_typography.sass */
+.home-title-description {
+  font-family: "Decima Mono", sans-serif;
+  font-weight: 200;
+}
+
+/* line 1, ../sass/partials/_layout.sass */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 5, ../sass/partials/_layout.sass */
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 11, ../sass/partials/_layout.sass */
+.home-containter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* line 24, ../sass/partials/_layout.sass */
+.top-header {
+  display: flex;
+  flex-direction: row;
+  order: 0;
+}
+
+/* line 29, ../sass/partials/_layout.sass */
+.image-container {
+  order: 0;
+  object-fit: contain;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+/* line 35, ../sass/partials/_layout.sass */
+.image-container img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 39, ../sass/partials/_layout.sass */
+.header-container {
+  order: 1;
+  flex: 2;
+}
+
+/* line 43, ../sass/partials/_layout.sass */
+.links-container {
+  text-align: center;
+  order: 2;
+}
