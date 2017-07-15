@@ -142,16 +142,17 @@ body {
   order: 0;
   max-width: 680px;
   flex: 1;
+  margin-top: 30px;
 }
 
-/* line 31, ../sass/partials/_layout.sass */
+/* line 32, ../sass/partials/_layout.sass */
 .image-container {
   order: 0;
   margin-right: 10px;
   padding-right: 10px;
   max-width: 140px;
 }
-/* line 37, ../sass/partials/_layout.sass */
+/* line 38, ../sass/partials/_layout.sass */
 .image-container img {
   height: 100%;
   width: 100%;
@@ -159,17 +160,17 @@ body {
   object-position: top;
 }
 
-/* line 43, ../sass/partials/_layout.sass */
+/* line 44, ../sass/partials/_layout.sass */
 .header-container {
   order: 1;
   flex: 2;
 }
-/* line 46, ../sass/partials/_layout.sass */
+/* line 47, ../sass/partials/_layout.sass */
 .header-container h1 {
   text-align: center;
 }
 
-/* line 49, ../sass/partials/_layout.sass */
+/* line 50, ../sass/partials/_layout.sass */
 .links-container {
   text-align: center;
   order: 1;
