@@ -34,6 +34,18 @@ h2
 h3
   font-size: 1.5em
 
+h1.programming, p.programming
+  color: $programming
+
+h1.photography, p.photography
+  color: $photography
+
+h1.blog, p.blog
+  color: $blog
+
+h1.resume, p.resume
+  color: $resume
+
 .home-title-header
   font-family: $mono-header-family, sans-serif
   font-weight: $mono-header-weight
@@ -41,3 +53,24 @@ h3
 .home-title-description
   font-family: $mono-text-family, sans-serif
   font-weight: $mono-text-weight
+
+a
+  &:hover
+    cursor: pointer
+  padding: 10px
+
+.programming
+  &:hover
+    color: $programming
+
+.photography
+  &:hover
+    color: $photography
+
+.blog
+  &:hover
+    color: $blog
+
+.resume
+  &:hover
+    color: $resume

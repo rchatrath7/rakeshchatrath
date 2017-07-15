@@ -45,15 +45,64 @@ h3 {
 }
 
 /* line 37, ../sass/partials/_typography.sass */
+h1.programming, p.programming {
+  color: #003A8E;
+}
+
+/* line 40, ../sass/partials/_typography.sass */
+h1.photography, p.photography {
+  color: #E8285A;
+}
+
+/* line 43, ../sass/partials/_typography.sass */
+h1.blog, p.blog {
+  color: #C5518F;
+}
+
+/* line 46, ../sass/partials/_typography.sass */
+h1.resume, p.resume {
+  color: #00FFCC;
+}
+
+/* line 49, ../sass/partials/_typography.sass */
 .home-title-header {
   font-family: "Decima Pro", sans-serif;
   font-weight: 400;
 }
 
-/* line 41, ../sass/partials/_typography.sass */
+/* line 53, ../sass/partials/_typography.sass */
 .home-title-description {
   font-family: "Decima Mono", sans-serif;
   font-weight: 200;
+}
+
+/* line 57, ../sass/partials/_typography.sass */
+a {
+  padding: 10px;
+}
+/* line 58, ../sass/partials/_typography.sass */
+a:hover {
+  cursor: pointer;
+}
+
+/* line 63, ../sass/partials/_typography.sass */
+.programming:hover {
+  color: #003A8E;
+}
+
+/* line 67, ../sass/partials/_typography.sass */
+.photography:hover {
+  color: #E8285A;
+}
+
+/* line 71, ../sass/partials/_typography.sass */
+.blog:hover {
+  color: #C5518F;
+}
+
+/* line 75, ../sass/partials/_typography.sass */
+.resume:hover {
+  color: #00FFCC;
 }
 
 /* line 1, ../sass/partials/_layout.sass */
@@ -90,28 +139,34 @@ body {
   display: flex;
   flex-direction: row;
   order: 0;
+  max-width: 680px;
 }
 
-/* line 29, ../sass/partials/_layout.sass */
+/* line 30, ../sass/partials/_layout.sass */
 .image-container {
   order: 0;
   object-fit: contain;
   margin-right: 10px;
   padding-right: 10px;
+  max-width: 140px;
 }
-/* line 35, ../sass/partials/_layout.sass */
+/* line 37, ../sass/partials/_layout.sass */
 .image-container img {
   height: 100%;
   width: 100%;
 }
 
-/* line 39, ../sass/partials/_layout.sass */
+/* line 41, ../sass/partials/_layout.sass */
 .header-container {
   order: 1;
   flex: 2;
 }
+/* line 44, ../sass/partials/_layout.sass */
+.header-container h1 {
+  text-align: center;
+}
 
-/* line 43, ../sass/partials/_layout.sass */
+/* line 47, ../sass/partials/_layout.sass */
 .links-container {
   text-align: center;
   order: 2;
