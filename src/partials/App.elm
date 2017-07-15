@@ -1,11 +1,10 @@
 module App exposing (..)
 
-import Html exposing (Html, text, div, img, h1, a, p)
+import Html exposing (Html, text, div, img, h1, a, p, i)
 import Html.Attributes exposing (src, classList)
-import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter)
+import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onClick)
 import Array exposing (Array)
 import String exposing (..)
-
 
 ---- MODEL ----
 
@@ -221,6 +220,12 @@ view model =
                          ]
                          [ text "Resume" ]
                      ]
+              ]
+        , div [ classList [ ("footer", True) ] ]
+              [ i [ classList [ ( "fa fa-envelope", True ) ] ] []
+              , i [ classList [ ( "fa fa-github", True ) ] ] []
+              , i [ classList [ ( "fa fa-linkedin", True ) ] ] []
+              , i [ classList [ ( "fa fa-twitter", True ) ] ] []
               ]
         ]
 
