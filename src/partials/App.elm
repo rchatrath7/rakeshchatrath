@@ -3,8 +3,9 @@ module App exposing (..)
 import Html exposing (Html, text, div, img, h1, a, p, i)
 import Html.Attributes exposing (src, classList)
 import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onClick)
+
 import Array exposing (Array)
-import String exposing (..)
+import String exposing (slice)
 
 ---- MODEL ----
 
@@ -174,7 +175,7 @@ view : Model -> Html Msg
 view model =
     div [ classList [ ("home-containter", True) ] ]
         [ div [ classList [ ("top-header", True ) ] ]
-              [ div [ classList [ ("image-container", True) ] ] [ img [ src <| String.slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
+              [ div [ classList [ ("image-container", True) ] ] [ img [ src <| slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
               , div [ classList [ ("header-container", True ) ] ]
                     [
                       h1 [ classList [ ("home-title-header", True)
