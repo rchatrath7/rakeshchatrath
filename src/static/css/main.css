@@ -67,40 +67,41 @@ h1.resume, p.resume {
 /* line 49, ../sass/partials/_typography.sass */
 .home-title-header {
   font-family: "Decima Pro", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 /* line 53, ../sass/partials/_typography.sass */
 .home-title-description {
   font-family: "Decima Mono", sans-serif;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 /* line 57, ../sass/partials/_typography.sass */
 a {
   padding: 10px;
+  transition: color 0.2s ease;
 }
 /* line 58, ../sass/partials/_typography.sass */
 a:hover {
   cursor: pointer;
 }
 
-/* line 63, ../sass/partials/_typography.sass */
+/* line 64, ../sass/partials/_typography.sass */
 .programming:hover {
   color: #003A8E;
 }
 
-/* line 67, ../sass/partials/_typography.sass */
+/* line 68, ../sass/partials/_typography.sass */
 .photography:hover {
   color: #E8285A;
 }
 
-/* line 71, ../sass/partials/_typography.sass */
+/* line 72, ../sass/partials/_typography.sass */
 .blog:hover {
   color: #C5518F;
 }
 
-/* line 75, ../sass/partials/_typography.sass */
+/* line 76, ../sass/partials/_typography.sass */
 .resume:hover {
   color: #00FFCC;
 }
@@ -140,12 +141,12 @@ body {
   flex-direction: row;
   order: 0;
   max-width: 680px;
+  flex: 1;
 }
 
-/* line 30, ../sass/partials/_layout.sass */
+/* line 31, ../sass/partials/_layout.sass */
 .image-container {
   order: 0;
-  object-fit: contain;
   margin-right: 10px;
   padding-right: 10px;
   max-width: 140px;
@@ -154,20 +155,41 @@ body {
 .image-container img {
   height: 100%;
   width: 100%;
+  object-fit: contain;
+  object-position: top;
 }
 
-/* line 41, ../sass/partials/_layout.sass */
+/* line 43, ../sass/partials/_layout.sass */
 .header-container {
   order: 1;
   flex: 2;
 }
-/* line 44, ../sass/partials/_layout.sass */
+/* line 46, ../sass/partials/_layout.sass */
 .header-container h1 {
   text-align: center;
 }
 
-/* line 47, ../sass/partials/_layout.sass */
+/* line 49, ../sass/partials/_layout.sass */
 .links-container {
   text-align: center;
-  order: 2;
+  order: 1;
+  flex: 1;
+}
+
+/* line 1, ../sass/partials/_footer.sass */
+.footer {
+  font-size: 1.5em;
+  color: #405469;
+  height: 54px;
+  order: 3;
+  flex: 0.5;
+}
+/* line 8, ../sass/partials/_footer.sass */
+.footer .fa {
+  margin: 2px;
+}
+/* line 11, ../sass/partials/_footer.sass */
+.footer .fa:hover {
+  cursor: pointer;
+  color: #6b87a4;
 }
