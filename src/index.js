@@ -1,4 +1,4 @@
-// import './assets/css/main.css'
+import './static/css/main.css'
 const iconPath = require('./static/img/logo.svg')
 const Elm = require('./partials/App.elm')
 
