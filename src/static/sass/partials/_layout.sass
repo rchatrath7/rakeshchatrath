@@ -12,7 +12,6 @@ body
   position: absolute
   top: 0
   left: 0
-  padding: 20px
   width: 100%
   min-height: 100vh
   overflow-y: auto
@@ -20,20 +19,29 @@ body
   justify-content: center
   align-items: center
   flex-direction: column
+  align-content: space-between
+
+.title-container
+  order: 0
+  width: 100%
+  margin: 0
+  display: flex
+  height: 50vh
+  align-items: center
+  justify-content: center
+  background-color: #222
 
 .top-header
   display: flex
   flex-direction: row
-  order: 0
-  max-width: 680px
-  flex: 1
-  margin-top: 30px
+  max-width: 700px
 
 .image-container
   order: 0
   margin-right: 10px
   padding-right: 10px
   max-width: 140px
+  height: 100%
 
   img
     height: 100%
@@ -43,11 +51,26 @@ body
 
 .header-container
   order: 1
-  flex: 2
+  flex: 1 0 0px
+  height: 100%
   h1
     text-align: center
+  padding-right: 20px
+  padding-top: 10px
 
 .links-container
   text-align: center
   order: 1
+  height: 40vh
   flex: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+
+  p
+    padding: 0
+
+  a
+    padding: 0
+    margin: 0
