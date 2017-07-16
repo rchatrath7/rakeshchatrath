@@ -233,38 +233,38 @@ body {
   border-right: 0.6em solid #405469;
   white-space: nowrap;
   margin: 0 auto;
-  animation: typing 2s steps(50, end), blink-caret 0.75s step-end infinite;
+  animation: typing 2.5s steps(50, end), blink-caret 0.75s step-end infinite;
 }
 /* line 8, ../sass/partials/_typewriter.sass */
 .typewriter .programming, .left-typewriter .programming, .programming-typewriter .programming, .photography-typewriter .programming, .blog-typewriter .programming, .resume-typewriter .programming, .typewriter .photography, .left-typewriter .photography, .programming-typewriter .photography, .photography-typewriter .photography, .blog-typewriter .photography, .resume-typewriter .photography, .typewriter .blog, .left-typewriter .blog, .programming-typewriter .blog, .photography-typewriter .blog, .blog-typewriter .blog, .resume-typewriter .blog, .typewriter .resume, .left-typewriter .resume, .programming-typewriter .resume, .photography-typewriter .resume, .blog-typewriter .resume, .resume-typewriter .resume {
-  white-space: normal;
+  white-space: nowrap;
 }
 
 /* line 11, ../sass/partials/_typewriter.sass */
 .left-typewriter {
-  white-space: normal;
+  white-space: nowrap;
   width: 0;
   animation: deletion-typing 0.5s steps(50, end), blink-caret 0.75s step-end infinite;
 }
 
 /* line 20, ../sass/partials/_typewriter.sass */
 .programming-typewriter {
-  animation: typing 2s steps(50, end), programming-caret 0.75s step-end infinite;
+  animation: typing 2.5s steps(50, end), programming-caret 0.75s step-end infinite;
 }
 
 /* line 23, ../sass/partials/_typewriter.sass */
 .photography-typewriter {
-  animation: typing 2s steps(50, end), photography-caret 0.75s step-end infinite;
+  animation: typing 2.5s steps(50, end), photography-caret 0.75s step-end infinite;
 }
 
 /* line 26, ../sass/partials/_typewriter.sass */
 .blog-typewriter {
-  animation: typing 2s steps(50, end), blog-caret 0.75s step-end infinite;
+  animation: typing 2.5s steps(50, end), blog-caret 0.75s step-end infinite;
 }
 
 /* line 29, ../sass/partials/_typewriter.sass */
 .resume-typewriter {
-  animation: typing 2s steps(50, end), resume-caret 0.75s step-end infinite;
+  animation: typing 2.5s steps(50, end), resume-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {

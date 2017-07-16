@@ -2,7 +2,7 @@ module App exposing (..)
 
 import Html exposing (Html, text, div, img, h1, a, p, i)
 import Html.Attributes exposing (src, classList, href)
-import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onClick)
+import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onMouseLeave, onClick)
 
 import Array exposing (Array)
 import String exposing (slice)
@@ -21,10 +21,12 @@ type alias Model =
     , paths : Array String
     , description : String
     , indicator : Int
+    , isDefault : Bool
     , isProgramming : Bool
     , isPhotography : Bool
     , isBlog: Bool
     , isResume : Bool
+    , hasLeftLink : Bool
     }
 
 type alias Flags =
@@ -39,6 +41,7 @@ components =
   { programming = { title = "Programming"
                   , indicator = 1
                   , description = "I do full stack web development with interests in data science, machine learning, and bioinformatics."
+                  , isDefault = False
                   , isProgramming = True
                   , isPhotography = False
                   , isBlog = False
@@ -47,6 +50,7 @@ components =
     , photography = { title = "Photography"
                     , indicator = 2
                     , description = "I love taking photos of things - especially street, landscape and portraiture photography."
+                    , isDefault = False
                     , isProgramming = False
                     , isPhotography = True
                     , isBlog = False
@@ -54,7 +58,8 @@ components =
                     }
     , blog = { title = "Blog"
              , indicator = 3
-             , description = "I like to write about all sorts of things pertaining to myself and technology."
+             , description = "I like to write about myself and all things technology."
+             , isDefault = False
              , isProgramming = False
              , isPhotography = False
              , isBlog = True
@@ -63,6 +68,7 @@ components =
     , resume = { title = "Resume"
                , indicator = 4
                , description = "Interested in hiring me? Contact me at rakesh@rakeshchatrath.me."
+               , isDefault = False
                , isProgramming = False
                , isPhotography = False
                , isBlog = False
@@ -71,6 +77,7 @@ components =
     , default = { title = "Hi. I'm Rakesh Chatrath."
                 , indicator = 0
                 , description = "I like all things technology, photography and biology."
+                , isDefault = True
                 , isProgramming = False
                 , isPhotography = False
                 , isBlog = False
@@ -90,10 +97,12 @@ init flags =
                 ]
       , indicator = 0
       , description = components.default.description
+      , isDefault = components.default.isDefault
       , isProgramming = components.default.isProgramming
       , isPhotography = components.default.isPhotography
       , isBlog = components.default.isBlog
       , isResume = components.default.isResume
+      , hasLeftLink = False
       }
     , Cmd.none
     )
@@ -118,10 +127,12 @@ update msg model =
         | title = components.programming.title
         , description = components.programming.description
         , indicator = components.programming.indicator
+        , isDefault = components.programming.isDefault
         , isProgramming = components.programming.isProgramming
         , isPhotography = components.programming.isPhotography
         , isBlog = components.programming.isBlog
         , isResume = components.programming.isResume
+        , hasLeftLink = False
         }
         , Cmd.none )
     Photography ->
@@ -129,10 +140,12 @@ update msg model =
         | title = components.photography.title
         , description = components.photography.description
         , indicator = components.photography.indicator
+        , isDefault = components.photography.isDefault
         , isProgramming = components.photography.isProgramming
         , isPhotography = components.photography.isPhotography
         , isBlog = components.photography.isBlog
         , isResume = components.photography.isResume
+        , hasLeftLink = False
         }
       , Cmd.none )
     Blog ->
@@ -140,10 +153,12 @@ update msg model =
         | title = components.blog.title
         , description = components.blog.description
         , indicator = components.blog.indicator
+        , isDefault = components.blog.isDefault
         , isProgramming = components.blog.isProgramming
         , isPhotography = components.blog.isPhotography
         , isBlog = components.blog.isBlog
         , isResume = components.blog.isResume
+        , hasLeftLink = False
         }
       , Cmd.none )
     Resume ->
@@ -151,21 +166,22 @@ update msg model =
         | title = components.resume.title
         , description = components.resume.description
         , indicator = components.resume.indicator
+        , isDefault = components.resume.isDefault
         , isProgramming = components.resume.isProgramming
         , isPhotography = components.resume.isPhotography
         , isBlog = components.resume.isBlog
         , isResume = components.resume.isResume
+        , hasLeftLink = False
         }
       , Cmd.none )
     Default ->
       ( { model
-        | title = components.default.title
-        , description = components.default.description
-        , indicator = components.default.indicator
+        | isDefault = components.default.isDefault
         , isProgramming = components.default.isProgramming
         , isPhotography = components.default.isPhotography
         , isBlog = components.default.isBlog
         , isResume = components.default.isResume
+        , hasLeftLink = True
         }
       , Cmd.none )
 
@@ -177,12 +193,17 @@ view : Model -> Html Msg
 view model =
     div [ classList [ ("home-containter", True) ] ]
         [ div [ classList [ ("title-container", True ) ] ]
-              [ div [ classList [ ("top-header", True ) ] ]
-                    [ div [ classList [ ("image-container", True) ] ] [ img [ src <| slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
-                    , div [ classList [ ("header-container", True )
-                                      , ("typewriter", True)
-                                      ]
-                          ]
+              [ div [ classList [ ("top-header", True )
+                                , ( "left-typewriter", model.hasLeftLink )
+                                , ( "typewriter", model.isDefault )
+                                , ( "programming-typewriter", model.isProgramming )
+                                , ( "photography-typewriter", model.isPhotography )
+                                , ( "blog-typewriter", model.isBlog )
+                                , ( "resume-typewriter", model.isResume )
+                                ]
+                    ]
+                    [ div [ classList [ ("image-container", True ) ] ] [ img [ src <| slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
+                    , div [ classList [ ("header-container", True ) ] ]
                           [
                             h1 [ classList [ ("home-title-header", True)
                                            , ("programming", model.isProgramming)
@@ -203,7 +224,9 @@ view model =
                           ]
                     ]
                 ]
-        , div [ classList [ ("links-container", True ) ] ]
+        , div [ classList [ ("links-container", True ) ]
+              , onMouseEnter Default
+              ]
               [ p [] [ a [ onMouseEnter Programming
                          , onMouseOut Default
                          , classList [ ("programming", True) ]
