@@ -1,11 +1,13 @@
 module App exposing (..)
 
 import Html exposing (Html, text, div, img, h1, a, p, i)
-import Html.Attributes exposing (src, classList)
+import Html.Attributes exposing (src, classList, href)
 import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onClick)
 
 import Array exposing (Array)
 import String exposing (slice)
+
+import Navigation exposing (newUrl, modifyUrl)
 
 ---- MODEL ----
 
@@ -36,7 +38,7 @@ type alias Flags =
 components =
   { programming = { title = "Programming"
                   , indicator = 1
-                  , description = "I do full stack web development with interests in data science, machine learning, computer vision, and computational biology research."
+                  , description = "I do full stack web development with interests in data science, machine learning, and bioinformatics."
                   , isProgramming = True
                   , isPhotography = False
                   , isBlog = False
@@ -174,28 +176,33 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div [ classList [ ("home-containter", True) ] ]
-        [ div [ classList [ ("top-header", True ) ] ]
-              [ div [ classList [ ("image-container", True) ] ] [ img [ src <| slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
-              , div [ classList [ ("header-container", True ) ] ]
-                    [
-                      h1 [ classList [ ("home-title-header", True)
-                                     , ("programming", model.isProgramming)
-                                     , ("photography", model.isPhotography)
-                                     , ("blog", model.isBlog)
-                                     , ("resume", model.isResume)
-                                     ]
-                         ]
-                         [ text model.title ]
-                    , p [ classList [ ("home-title-description", True)
-                                    , ("programming", model.isProgramming)
-                                    , ("photography", model.isPhotography)
-                                    , ("blog", model.isBlog)
-                                    , ("resume", model.isResume)
-                                    ]
-                        ]
-                        [ text model.description ]
+        [ div [ classList [ ("title-container", True ) ] ]
+              [ div [ classList [ ("top-header", True ) ] ]
+                    [ div [ classList [ ("image-container", True) ] ] [ img [ src <| slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
+                    , div [ classList [ ("header-container", True )
+                                      , ("typewriter", True)
+                                      ]
+                          ]
+                          [
+                            h1 [ classList [ ("home-title-header", True)
+                                           , ("programming", model.isProgramming)
+                                           , ("photography", model.isPhotography)
+                                           , ("blog", model.isBlog)
+                                           , ("resume", model.isResume)
+                                           ]
+                               ]
+                               [ text model.title ]
+                          , p [ classList [ ("home-title-description", True)
+                                          , ("programming", model.isProgramming)
+                                          , ("photography", model.isPhotography)
+                                          , ("blog", model.isBlog)
+                                          , ("resume", model.isResume)
+                                          ]
+                              ]
+                              [ text model.description ]
+                          ]
                     ]
-              ]
+                ]
         , div [ classList [ ("links-container", True ) ] ]
               [ p [] [ a [ onMouseEnter Programming
                          , onMouseOut Default
@@ -223,10 +230,10 @@ view model =
                      ]
               ]
         , div [ classList [ ("footer", True) ] ]
-              [ i [ classList [ ( "fa fa-envelope", True ) ] ] []
-              , i [ classList [ ( "fa fa-github", True ) ] ] []
-              , i [ classList [ ( "fa fa-linkedin", True ) ] ] []
-              , i [ classList [ ( "fa fa-twitter", True ) ] ] []
+              [ a [ href "mailto:rakesh@rakeshchatrath.me" ] [ i [ classList [ ( "fa fa-envelope", True ) ] ] [] ]
+              , a [ href "https://www.github.com/rchatrath7" ] [ i [ classList [ ( "fa fa-github", True ) ] ] [] ]
+              , a [ href "https://www.linkedin.com/in/rchatrath" ] [ i [ classList [ ( "fa fa-linkedin", True ) ] ] [] ]
+              , a [ href "https://www.twitter.com/rakesh_chatrath" ] [ i [ classList [ ( "fa fa-twitter", True ) ] ] [] ]
               ]
         ]
 
