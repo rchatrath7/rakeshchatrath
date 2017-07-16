@@ -1,0 +1,74 @@
+.typewriter
+  overflow: hidden
+  border-right: .6em solid $base-text-color
+  white-space: nowrap
+  margin: 0 auto
+  animation: typing 2s steps(50, end), blink-caret .75s step-end infinite
+
+  .programming, .photography, .blog, .resume
+    white-space: normal
+
+.left-typewriter
+  @extend .typewriter
+  white-space: normal
+  width: 0
+  animation: deletion-typing .5s steps(50, end), blink-caret .75s step-end infinite
+
+.programming-typewriter, .photography-typewriter, .blog-typewriter, .resume-typewriter
+  @extend .typewriter
+
+.programming-typewriter
+  animation: typing 2s steps(50, end), programming-caret .75s step-end infinite
+
+.photography-typewriter
+  animation: typing 2s steps(50, end), photography-caret .75s step-end infinite
+
+.blog-typewriter
+  animation: typing 2s steps(50, end), blog-caret .75s step-end infinite
+
+.resume-typewriter
+  animation: typing 2s steps(50, end), resume-caret .75s step-end infinite
+
+
+
+@keyframes typing
+  from, to
+    width: 0
+  100%
+    width: 100%
+
+@keyframes deletion-typing
+  from, to
+    width: 100%
+  100%
+    width: 0
+
+@keyframes blink-caret
+  from, to
+    border-color: transparent
+  50%
+    border-color: $base-text-color
+
+@keyframes programming-caret
+  from, to
+    border-color: transparent
+  50%
+    border-color: $programming
+
+@keyframes photography-caret
+  from, to
+    border-color: transparent
+  50%
+    border-color: $photography
+
+@keyframes blog-caret
+  from, to
+    border-color: transparent
+  50%
+    border-color: $blog
+
+@keyframes resume-caret
+  from, to
+    border-color: transparent
+  50%
+    border-color: $resume
