@@ -22,14 +22,44 @@ body
   align-content: space-between
 
 .title-container
-  order: 0
+  position: relative
   width: 100%
-  margin: 0
-  display: flex
   height: 50vh
+  order: 0
+  display: flex
   align-items: center
   justify-content: center
+  flex-direction: column
   background-color: #222
+  transition: 1s ease-in-out
+
+  .fa
+    position: absolute
+    bottom: 0
+    margin-bottom: 10px
+    text-align: center
+    font-size: 1.5em
+    padding: 10px
+    border: solid 5px $base-text-color
+    border-radius: 50%
+    transition: .5s ease-in-out
+    animation: bounce 2s infinite 
+
+    &:hover
+      cursor: pointer
+      color: lighten($base-text-color, 20)
+      border-color: lighten($base-text-color, 20)
+
+    @keyframes bounce
+      0%, 20%, 50%, 80%
+        transform: translateY(0)
+      40%
+        transform: translateY(-30px)
+      60%
+        transform: translateY(-15px)
+
+.full-size
+  height: 100vh
 
 .top-header
   display: flex
@@ -53,10 +83,12 @@ body
   order: 1
   flex: 1 0 0px
   height: 100%
-  h1
-    text-align: center
   padding-right: 20px
   padding-top: 10px
+  transition: 2s ease-in-out
+
+  h1, p
+    text-align: center
 
 .links-container
   text-align: center

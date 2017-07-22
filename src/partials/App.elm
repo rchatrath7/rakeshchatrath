@@ -27,6 +27,7 @@ type alias Model =
     , isBlog: Bool
     , isResume : Bool
     , hasLeftLink : Bool
+    , isFull : Bool
     }
 
 type alias Flags =
@@ -40,7 +41,7 @@ type alias Flags =
 components =
   { programming = { title = "Programming"
                   , indicator = 1
-                  , description = "I do full stack web development with interests in data science, machine learning, and bioinformatics."
+                  , description = "I like web dev, data science and bioinformatics."
                   , isDefault = False
                   , isProgramming = True
                   , isPhotography = False
@@ -49,7 +50,7 @@ components =
                   }
     , photography = { title = "Photography"
                     , indicator = 2
-                    , description = "I love taking photos of things - especially street, landscape and portraiture photography."
+                    , description = "I love street, landscape and portraiture photography."
                     , isDefault = False
                     , isProgramming = False
                     , isPhotography = True
@@ -58,7 +59,7 @@ components =
                     }
     , blog = { title = "Blog"
              , indicator = 3
-             , description = "I like to write about myself and all things technology."
+             , description = "I like to write about myself and all things tech."
              , isDefault = False
              , isProgramming = False
              , isPhotography = False
@@ -67,7 +68,7 @@ components =
              }
     , resume = { title = "Resume"
                , indicator = 4
-               , description = "Interested in hiring me? Contact me at rakesh@rakeshchatrath.me."
+               , description = "Interested in hiring me? Contact me at below."
                , isDefault = False
                , isProgramming = False
                , isPhotography = False
@@ -103,6 +104,7 @@ init flags =
       , isBlog = components.default.isBlog
       , isResume = components.default.isResume
       , hasLeftLink = False
+      , isFull = True
       }
     , Cmd.none
     )
@@ -118,6 +120,7 @@ type Msg
   | Blog
   | Resume
   | Default
+  | ScrollDown
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -132,7 +135,7 @@ update msg model =
         , isPhotography = components.programming.isPhotography
         , isBlog = components.programming.isBlog
         , isResume = components.programming.isResume
-        , hasLeftLink = False
+        , hasLeftLink = True
         }
         , Cmd.none )
     Photography ->
@@ -184,6 +187,11 @@ update msg model =
         , hasLeftLink = True
         }
       , Cmd.none )
+    ScrollDown ->
+      ( { model
+          | isFull = False
+        }
+      , Cmd.none )
 
 
 ---- VIEW ----
@@ -192,7 +200,10 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div [ classList [ ("home-containter", True) ] ]
-        [ div [ classList [ ("title-container", True ) ] ]
+        [ div [ classList [ ( "title-container", True )
+                          , ( "full-size", model.isFull )
+                          ]
+              ]
               [ div [ classList [ ("top-header", True )
                                 , ( "left-typewriter", model.hasLeftLink )
                                 , ( "typewriter", model.isDefault )
@@ -223,7 +234,11 @@ view model =
                               [ text model.description ]
                           ]
                     ]
-                ]
+              , i [ onClick ScrollDown
+                  , classList [ ( "fa fa-chevron-down", model.isFull ) ]
+                  ]
+                  []
+              ]
         , div [ classList [ ("links-container", True ) ]
               , onMouseEnter Default
               ]

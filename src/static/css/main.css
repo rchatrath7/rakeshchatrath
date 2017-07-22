@@ -139,24 +139,60 @@ body {
 
 /* line 24, ../sass/partials/_layout.sass */
 .title-container {
-  order: 0;
+  position: relative;
   width: 100%;
-  margin: 0;
-  display: flex;
   height: 50vh;
+  order: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   background-color: #222;
+  transition: 1s ease-in-out;
+}
+/* line 36, ../sass/partials/_layout.sass */
+.title-container .fa {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 10px;
+  border: solid 5px #405469;
+  border-radius: 50%;
+  transition: 0.5s ease-in-out;
+  animation: bounce 2s infinite;
+}
+/* line 48, ../sass/partials/_layout.sass */
+.title-container .fa:hover {
+  cursor: pointer;
+  color: #6b87a4;
+  border-color: #6b87a4;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+/* line 61, ../sass/partials/_layout.sass */
+.full-size {
+  height: 100vh;
 }
 
-/* line 34, ../sass/partials/_layout.sass */
+/* line 64, ../sass/partials/_layout.sass */
 .top-header {
   display: flex;
   flex-direction: row;
   max-width: 700px;
 }
 
-/* line 39, ../sass/partials/_layout.sass */
+/* line 69, ../sass/partials/_layout.sass */
 .image-container {
   order: 0;
   margin-right: 10px;
@@ -164,7 +200,7 @@ body {
   max-width: 140px;
   height: 100%;
 }
-/* line 46, ../sass/partials/_layout.sass */
+/* line 76, ../sass/partials/_layout.sass */
 .image-container img {
   height: 100%;
   width: 100%;
@@ -172,20 +208,21 @@ body {
   object-position: top;
 }
 
-/* line 52, ../sass/partials/_layout.sass */
+/* line 82, ../sass/partials/_layout.sass */
 .header-container {
   order: 1;
   flex: 1 0 0px;
   height: 100%;
   padding-right: 20px;
   padding-top: 10px;
+  transition: 2s ease-in-out;
 }
-/* line 56, ../sass/partials/_layout.sass */
-.header-container h1 {
+/* line 90, ../sass/partials/_layout.sass */
+.header-container h1, .header-container p {
   text-align: center;
 }
 
-/* line 61, ../sass/partials/_layout.sass */
+/* line 93, ../sass/partials/_layout.sass */
 .links-container {
   text-align: center;
   order: 1;
@@ -196,11 +233,11 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-/* line 71, ../sass/partials/_layout.sass */
+/* line 103, ../sass/partials/_layout.sass */
 .links-container p {
   padding: 0;
 }
-/* line 74, ../sass/partials/_layout.sass */
+/* line 106, ../sass/partials/_layout.sass */
 .links-container a {
   padding: 0;
   margin: 0;
