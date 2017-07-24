@@ -6,8 +6,9 @@ import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onMouseLeave
 
 import Array exposing (Array)
 import String exposing (slice)
+import List exposing (..)
 
-import Navigation exposing (newUrl, modifyUrl)
+import Navigation
 
 ---- MODEL ----
 
@@ -28,6 +29,7 @@ type alias Model =
     , isResume : Bool
     , hasLeftLink : Bool
     , isFull : Bool
+    , currentRoute : Navigation.Location
     }
 
 type alias Flags =
@@ -37,6 +39,15 @@ type alias Flags =
       blogPath : String,
       resumePath : String
     }
+
+type RoutePath
+  = DefaultRoute
+  | HomeRoute
+  | ProgrammingRoute
+  | PhotographyRoute
+  | BlogRoute
+  | ResumeRoute
+  | NotFoundRoute
 
 components =
   { programming = { title = "Programming"
@@ -87,8 +98,8 @@ components =
   }
 
 
-init : Flags -> ( Model, Cmd Msg )
-init flags =
+init : Flags -> Navigation.Location -> ( Model, Cmd Msg )
+init flags location =
     ( { title = components.default.title
       , paths = Array.fromList [ flags.logoPath
                 , flags.programmingPath
@@ -105,6 +116,7 @@ init flags =
       , isResume = components.default.isResume
       , hasLeftLink = False
       , isFull = True
+      , currentRoute = location
       }
     , Cmd.none
     )
@@ -121,6 +133,7 @@ type Msg
   | Resume
   | Default
   | ScrollDown
+  | UrlChange Navigation.Location
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -192,87 +205,189 @@ update msg model =
           | isFull = False
         }
       , Cmd.none )
+    UrlChange location ->
+      ( { model
+        | currentRoute  = location
+        }
+      , Cmd.none )
+
+
+---- Navigation ----
+fromUrlHash : String -> RoutePath
+fromUrlHash urlHash =
+  let
+    hashList =
+      urlHash |> String.split "/" |> drop 1
+  in
+    case hashList of
+
+      [] ->
+        DefaultRoute
+
+      [ "home" ] ->
+        HomeRoute
+
+      [ "programming" ] ->
+        ProgrammingRoute
+
+      [ "photography" ] ->
+        PhotographyRoute
+
+      [ "blog" ] ->
+        BlogRoute
+
+      [ "resume" ] ->
+        ResumeRoute
+
+      _  ->
+        NotFoundRoute
 
 
 ---- VIEW ----
 
+link : String -> String -> Html Msg
+link name url =
+    a [ href url ] [ text name ]
+
+navBar : Html Msg
+navBar =
+  div [][]
+
+titleWindow : Model -> Html Msg
+titleWindow model =
+  div [ classList [ ( "title-container", True )
+                  , ( "full-size", model.isFull )
+                  ]
+      ]
+      [ div [ classList [ ("top-header", True )
+                        , ( "left-typewriter", model.hasLeftLink )
+                        , ( "typewriter", model.isDefault )
+                        , ( "programming-typewriter", model.isProgramming )
+                        , ( "photography-typewriter", model.isPhotography )
+                        , ( "blog-typewriter", model.isBlog )
+                        , ( "resume-typewriter", model.isResume )
+                        ]
+            ]
+            [ div [ classList [ ("image-container", True ) ] ] [ img [ src <| slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
+            , div [ classList [ ("header-container", True ) ] ]
+                  [
+                    h1 [ classList [ ("home-title-header", True)
+                                   , ("programming", model.isProgramming)
+                                   , ("photography", model.isPhotography)
+                                   , ("blog", model.isBlog)
+                                   , ("resume", model.isResume)
+                                   ]
+                       ]
+                       [ text model.title ]
+                  , p [ classList [ ("home-title-description", True)
+                                  , ("programming", model.isProgramming)
+                                  , ("photography", model.isPhotography)
+                                  , ("blog", model.isBlog)
+                                  , ("resume", model.isResume)
+                                  ]
+                      ]
+                      [ text model.description ]
+                  ]
+            ]
+        , i [ onClick ScrollDown
+            , classList [ ( "fa fa-chevron-down", model.isFull ) ]
+            ]
+            []
+        ]
+
+homePage : Model -> Html Msg
+homePage model =
+  div [ classList [ ("links-container", True ) ]
+      , onMouseEnter Default
+      ]
+      [ p [ onMouseOver Programming
+          , onMouseOut Default
+          , classList [ ("programming", True) ]
+          ]
+          [ link "Programming" "#/programming" ]
+      , p [ onMouseOver Photography
+          , onMouseOut Default
+          , classList [ ("photography", True) ]
+          ]
+          [ link "Photography" "#/photography" ]
+      , p [ onMouseOver Blog
+          , onMouseOut Default
+          , classList [ ("blog", True) ]
+          ]
+          [ link "Blog" "#/blog" ]
+      , p [ onMouseOver Resume
+          , onMouseOut Default
+          , classList [ ("resume", True) ]
+          ]
+          [ link "Resume" "#/resume" ]
+      ]
+
+programmingPage : Html Msg
+programmingPage =
+   text "I write code."
+
+photographyPage : Html Msg
+photographyPage =
+   text "I take pictures."
+
+blogPage : Html Msg
+blogPage =
+   text "I write things."
+
+resumePage : Html Msg
+resumePage =
+   text "Please hire me."
+
+notFoundPage : Html Msg
+notFoundPage =
+   text "Page cannot be found."
+
+pageBody : Model -> Html Msg
+pageBody model =
+  let
+    routePath =
+      fromUrlHash model.currentRoute.hash
+
+  in
+    case routePath of
+      DefaultRoute ->
+        homePage model
+
+      HomeRoute ->
+        homePage model
+
+      ProgrammingRoute ->
+        programmingPage
+
+      PhotographyRoute ->
+        photographyPage
+
+      BlogRoute ->
+        blogPage
+
+      ResumeRoute ->
+        resumePage
+
+      NotFoundRoute ->
+        notFoundPage
+
+
+footer : Html Msg
+footer =
+  div [ classList [ ("footer", True) ] ]
+      [ a [ href "mailto:rakesh@rakeshchatrath.me" ] [ i [ classList [ ( "fa fa-envelope", True ) ] ] [] ]
+      , a [ href "https://www.github.com/rchatrath7" ] [ i [ classList [ ( "fa fa-github", True ) ] ] [] ]
+      , a [ href "https://www.linkedin.com/in/rchatrath" ] [ i [ classList [ ( "fa fa-linkedin", True ) ] ] [] ]
+      , a [ href "https://www.twitter.com/rakesh_chatrath" ] [ i [ classList [ ( "fa fa-twitter", True ) ] ] [] ]
+      ]
 
 view : Model -> Html Msg
 view model =
     div [ classList [ ("home-containter", True) ] ]
-        [ div [ classList [ ( "title-container", True )
-                          , ( "full-size", model.isFull )
-                          ]
-              ]
-              [ div [ classList [ ("top-header", True )
-                                , ( "left-typewriter", model.hasLeftLink )
-                                , ( "typewriter", model.isDefault )
-                                , ( "programming-typewriter", model.isProgramming )
-                                , ( "photography-typewriter", model.isPhotography )
-                                , ( "blog-typewriter", model.isBlog )
-                                , ( "resume-typewriter", model.isResume )
-                                ]
-                    ]
-                    [ div [ classList [ ("image-container", True ) ] ] [ img [ src <| slice 6 -1 <| toString <| Array.get model.indicator (model.paths) ] [] ]
-                    , div [ classList [ ("header-container", True ) ] ]
-                          [
-                            h1 [ classList [ ("home-title-header", True)
-                                           , ("programming", model.isProgramming)
-                                           , ("photography", model.isPhotography)
-                                           , ("blog", model.isBlog)
-                                           , ("resume", model.isResume)
-                                           ]
-                               ]
-                               [ text model.title ]
-                          , p [ classList [ ("home-title-description", True)
-                                          , ("programming", model.isProgramming)
-                                          , ("photography", model.isPhotography)
-                                          , ("blog", model.isBlog)
-                                          , ("resume", model.isResume)
-                                          ]
-                              ]
-                              [ text model.description ]
-                          ]
-                    ]
-              , i [ onClick ScrollDown
-                  , classList [ ( "fa fa-chevron-down", model.isFull ) ]
-                  ]
-                  []
-              ]
-        , div [ classList [ ("links-container", True ) ]
-              , onMouseEnter Default
-              ]
-              [ p [] [ a [ onMouseEnter Programming
-                         , onMouseOut Default
-                         , classList [ ("programming", True) ]
-                         ]
-                         [ text "Programming" ]
-                      ]
-              , p [] [ a [ onMouseOver Photography
-                         , onMouseOut Default
-                         , classList [ ("photography", True) ]
-                         ]
-                         [ text "Photography" ]
-                     ]
-              , p [] [ a [ onMouseOver Blog
-                         , onMouseOut Default
-                         , classList [ ("blog", True) ]
-                         ]
-                         [ text "Blog" ]
-                     ]
-              , p [] [ a [ onMouseOver Resume
-                         , onMouseOut Default
-                         , classList [ ("resume", True) ]
-                         ]
-                         [ text "Resume" ]
-                     ]
-              ]
-        , div [ classList [ ("footer", True) ] ]
-              [ a [ href "mailto:rakesh@rakeshchatrath.me" ] [ i [ classList [ ( "fa fa-envelope", True ) ] ] [] ]
-              , a [ href "https://www.github.com/rchatrath7" ] [ i [ classList [ ( "fa fa-github", True ) ] ] [] ]
-              , a [ href "https://www.linkedin.com/in/rchatrath" ] [ i [ classList [ ( "fa fa-linkedin", True ) ] ] [] ]
-              , a [ href "https://www.twitter.com/rakesh_chatrath" ] [ i [ classList [ ( "fa fa-twitter", True ) ] ] [] ]
-              ]
+        [ navBar
+        , titleWindow model
+        , pageBody model
+        , footer
         ]
 
 
@@ -281,7 +396,7 @@ view model =
 
 main : Program Flags Model Msg
 main =
-    Html.programWithFlags
+    Navigation.programWithFlags UrlChange
         { view = view
         , init = init
         , update = update
