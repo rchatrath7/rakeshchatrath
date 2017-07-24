@@ -213,6 +213,8 @@ update msg model =
 
 
 ---- Navigation ----
+
+
 fromUrlHash : String -> RoutePath
 fromUrlHash urlHash =
   let
@@ -249,6 +251,19 @@ link : String -> String -> Html Msg
 link name url =
     a [ href url ] [ text name ]
 
+parseRoute : Navigation.Location -> String
+parseRoute location =
+  if
+    location.hash == ""
+  then
+    "/"
+  else
+    slice 2 -1 <| toString <| location.hash
+
+checkPath : List String -> String -> Bool
+checkPath paths target =
+  List.member target paths
+
 navBar : Html Msg
 navBar =
   div [][]
@@ -256,11 +271,11 @@ navBar =
 titleWindow : Model -> Html Msg
 titleWindow model =
   div [ classList [ ( "title-container", True )
-                  , ( "full-size", model.isFull )
+                  , ( "full-size", model.isFull && ( checkPath [ "home", "/" ] <| parseRoute model.currentRoute ) == True )
                   ]
       ]
       [ div [ classList [ ("top-header", True )
-                        , ( "left-typewriter", model.hasLeftLink )
+                        , ( "left-typewriter", model.hasLeftLink && ( checkPath [ "home", "/" ] <| parseRoute model.currentRoute ) == True )
                         , ( "typewriter", model.isDefault )
                         , ( "programming-typewriter", model.isProgramming )
                         , ( "photography-typewriter", model.isPhotography )
@@ -290,7 +305,7 @@ titleWindow model =
                   ]
             ]
         , i [ onClick ScrollDown
-            , classList [ ( "fa fa-chevron-down", model.isFull ) ]
+            , classList [ ( "fa fa-chevron-down", model.isFull && ( checkPath [ "home", "/" ] <| parseRoute model.currentRoute ) == True ) ]
             ]
             []
         ]
@@ -324,7 +339,7 @@ homePage model =
 
 programmingPage : Html Msg
 programmingPage =
-   text "I write code."
+  text "I write code."
 
 photographyPage : Html Msg
 photographyPage =
