@@ -6,6 +6,7 @@ ul
 li
   float: left
   transition: color 1s ease-in-out
+  margin: 5px
 
   a
     box-sizing: border-box
@@ -69,6 +70,14 @@ li
     border-bottom-color: $programming
     border-left-color: $programming
 
+.draw-programming-active
+  background-color: $programming
+  color: white
+
+  &:hover
+    background-color: white
+    color: $programming
+
 .draw-photography
   @extend .draw
 
@@ -83,6 +92,14 @@ li
     border-bottom-color: $photography
     border-left-color: $photography
 
+.draw-photography-active
+  background-color: $photography
+  color: white
+
+  &:hover
+    background-color: white
+    color: $photography
+
 .draw-blog
   @extend .draw
 
@@ -96,6 +113,14 @@ li
   &:hover::after
     border-bottom-color: $blog
     border-left-color: $blog
+
+.draw-blog-active
+  background-color: $blog
+  color: white
+
+  &:hover
+    background-color: white
+    color: $blog
 
 .draw-resume
   @extend .draw

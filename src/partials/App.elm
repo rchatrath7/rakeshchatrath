@@ -1,6 +1,6 @@
 module App exposing (..)
 
-import Html exposing (Html, text, div, img, h1, a, p, i)
+import Html exposing (Html, text, div, img, h1, a, p, i, ul, li)
 import Html.Attributes exposing (src, classList, href)
 import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onMouseLeave, onClick)
 
@@ -148,7 +148,7 @@ update msg model =
         , isPhotography = components.programming.isPhotography
         , isBlog = components.programming.isBlog
         , isResume = components.programming.isResume
-        , hasLeftLink = True
+        , hasLeftLink = False
         }
         , Cmd.none )
     Photography ->
@@ -247,9 +247,12 @@ fromUrlHash urlHash =
 
 ---- VIEW ----
 
-link : String -> String -> Html Msg
-link name url =
-    a [ href url ] [ text name ]
+link : List (String, Bool) -> String -> String -> Html Msg
+link classes name url =
+    a [ classList classes
+      , href url
+      ]
+      [ text name ]
 
 parseRoute : Navigation.Location -> String
 parseRoute location =
@@ -264,18 +267,30 @@ checkPath : List String -> String -> Bool
 checkPath paths target =
   List.member target paths
 
-navBar : Html Msg
-navBar =
-  div [][]
+navBar : Model -> Html Msg
+navBar model =
+  div [ classList [ ( "navigation", ( checkPath [ "/home", "/" ] <| parseRoute model.currentRoute ) == False ) ] ]
+      [ ul [] [ li [] [ link [ ( "draw-programming", True )
+                             , ( "draw-programming-active", ( checkPath [ "/programming" ] <| parseRoute model.currentRoute ) == True )
+                             ] "Programming" "#/programming" ]
+              , li [] [ link [ ( "draw-photography", True )
+                             , ( "draw-photography-active", ( checkPath [ "/photography" ] <| parseRoute model.currentRoute ) == True )
+                             ] "Photography" "#/photography" ]
+              , li [] [ link [ ( "draw-blog", True )
+                             , ( "draw-blog-active", ( checkPath [ "/blog" ] <| parseRoute model.currentRoute ) == True )
+                             ] "Blog" "#/blog" ]
+              , li [] [ link [ ( "draw-resume", True ) ] "Resume" "#/resume" ]
+              ]
+      ]
 
 titleWindow : Model -> Html Msg
 titleWindow model =
   div [ classList [ ( "title-container", True )
-                  , ( "full-size", model.isFull && ( checkPath [ "home", "/" ] <| parseRoute model.currentRoute ) == True )
+                  , ( "full-size", model.isFull && ( checkPath [ "/home", "/" ] <| parseRoute model.currentRoute ) == True )
                   ]
       ]
       [ div [ classList [ ("top-header", True )
-                        , ( "left-typewriter", model.hasLeftLink && ( checkPath [ "home", "/" ] <| parseRoute model.currentRoute ) == True )
+                        , ( "left-typewriter", model.hasLeftLink && ( checkPath [ "/home", "/" ] <| parseRoute model.currentRoute ) == True )
                         , ( "typewriter", model.isDefault )
                         , ( "programming-typewriter", model.isProgramming )
                         , ( "photography-typewriter", model.isPhotography )
@@ -305,7 +320,7 @@ titleWindow model =
                   ]
             ]
         , i [ onClick ScrollDown
-            , classList [ ( "fa fa-chevron-down", model.isFull && ( checkPath [ "home", "/" ] <| parseRoute model.currentRoute ) == True ) ]
+            , classList [ ( "fa fa-chevron-down", model.isFull && ( checkPath [ "/home", "/" ] <| parseRoute model.currentRoute ) == True ) ]
             ]
             []
         ]
@@ -317,24 +332,20 @@ homePage model =
       ]
       [ p [ onMouseOver Programming
           , onMouseOut Default
-          , classList [ ("programming", True) ]
           ]
-          [ link "Programming" "#/programming" ]
+          [ link [ ("programming", True) ] "Programming" "#/programming" ]
       , p [ onMouseOver Photography
           , onMouseOut Default
-          , classList [ ("photography", True) ]
           ]
-          [ link "Photography" "#/photography" ]
+          [ link [ ("photography", True) ] "Photography" "#/photography" ]
       , p [ onMouseOver Blog
           , onMouseOut Default
-          , classList [ ("blog", True) ]
           ]
-          [ link "Blog" "#/blog" ]
+          [ link [ ("blog", True) ] "Blog" "#/blog" ]
       , p [ onMouseOver Resume
           , onMouseOut Default
-          , classList [ ("resume", True) ]
           ]
-          [ link "Resume" "#/resume" ]
+          [ link [ ("resume", True) ] "Resume" "#/resume" ]
       ]
 
 programmingPage : Html Msg
@@ -399,7 +410,7 @@ footer =
 view : Model -> Html Msg
 view model =
     div [ classList [ ("home-containter", True) ] ]
-        [ navBar
+        [ navBar model
         , titleWindow model
         , pageBody model
         , footer
