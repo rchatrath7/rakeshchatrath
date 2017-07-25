@@ -1,0 +1,123 @@
+ul
+  display: none
+  list-style-type: none
+  transition: 1s ease-in-out
+
+li
+  float: left
+  transition: color 1s ease-in-out
+
+  a
+    box-sizing: border-box
+    position: relative
+    padding: .5em
+
+    &::before,
+    &::after
+      box-sizing: inherit
+      content: ''
+      position: absolute
+      width: 100%
+      height: 100%
+
+// Draw transitions taken from: https://codepen.io/giana/pen/yYBpVY
+// All credits to this pen.
+
+.draw
+  transition: color .25s ease-in-out
+
+  &::before,
+  &::after
+    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+    border: 2px solid transparent
+    width: 0
+    height: 0
+
+  &::before
+    top: 0
+    left: 0
+
+  &::after
+    top: 0
+    left: 0
+
+  &:hover
+    cursor: pointer
+
+  &:hover::before,
+  &:hover::after
+    width: 100%
+    height: 100%
+
+  &:hover::before
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s
+
+  &:hover::after
+    transition: height 0.25s ease-out, width 0.25s ease-out 0.25s
+
+.draw-programming
+  @extend .draw
+
+  &:hover
+    color: $programming
+
+  &:hover::before
+    border-top-color: $programming
+    border-right-color: $programming
+
+  &:hover::after
+    border-bottom-color: $programming
+    border-left-color: $programming
+
+.draw-photography
+  @extend .draw
+
+  &:hover
+    color: $photography
+
+  &:hover::before
+    border-top-color: $photography
+    border-right-color: $photography
+
+  &:hover::after
+    border-bottom-color: $photography
+    border-left-color: $photography
+
+.draw-blog
+  @extend .draw
+
+  &:hover
+    color: $blog
+
+  &:hover::before
+    border-top-color: $blog
+    border-right-color: $blog
+
+  &:hover::after
+    border-bottom-color: $blog
+    border-left-color: $blog
+
+.draw-resume
+  @extend .draw
+
+  &:hover
+    color: $resume
+
+  &:hover::before
+    border-top-color: $resume
+    border-right-color: $resume
+
+  &:hover::after
+    border-bottom-color: $resume
+    border-left-color: $resume
+
+.navigation
+  flex: 0
+  height: 10vh
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 1.2em
+
+  ul
+    display: inline
