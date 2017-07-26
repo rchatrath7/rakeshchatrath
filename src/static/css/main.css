@@ -80,30 +80,32 @@ h1.resume, p.resume {
 
 /* line 59, ../sass/partials/_typography.sass */
 a {
+  color: #405469;
+  text-decoration: none;
   padding: 10px;
   transition: color 0.2s ease;
 }
-/* line 60, ../sass/partials/_typography.sass */
+/* line 64, ../sass/partials/_typography.sass */
 a:hover {
   cursor: pointer;
 }
 
-/* line 66, ../sass/partials/_typography.sass */
+/* line 68, ../sass/partials/_typography.sass */
 .programming:hover {
   color: #0059DB;
 }
 
-/* line 70, ../sass/partials/_typography.sass */
+/* line 72, ../sass/partials/_typography.sass */
 .photography:hover {
   color: #E8285A;
 }
 
-/* line 74, ../sass/partials/_typography.sass */
+/* line 76, ../sass/partials/_typography.sass */
 .blog:hover {
   color: #C5518F;
 }
 
-/* line 78, ../sass/partials/_typography.sass */
+/* line 80, ../sass/partials/_typography.sass */
 .resume:hover {
   color: #00FFCC;
 }
@@ -120,7 +122,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* line 12, ../sass/partials/_layout.sass */
@@ -132,17 +134,15 @@ body {
   min-height: 100vh;
   overflow-y: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  align-content: space-between;
 }
 
-/* line 25, ../sass/partials/_layout.sass */
+/* line 23, ../sass/partials/_layout.sass */
 .title-container {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 30vh;
   order: 0;
   display: flex;
   align-items: center;
@@ -151,7 +151,7 @@ body {
   background-color: #222;
   transition: 1s ease-in-out;
 }
-/* line 37, ../sass/partials/_layout.sass */
+/* line 35, ../sass/partials/_layout.sass */
 .title-container .fa {
   position: absolute;
   bottom: 0;
@@ -166,7 +166,7 @@ body {
   transition: 0.5s ease-in-out;
   animation: bounce 2s infinite;
 }
-/* line 51, ../sass/partials/_layout.sass */
+/* line 49, ../sass/partials/_layout.sass */
 .title-container .fa:hover {
   cursor: pointer;
   opacity: 1;
@@ -182,19 +182,20 @@ body {
     transform: translateY(-15px);
   }
 }
-/* line 63, ../sass/partials/_layout.sass */
+/* line 61, ../sass/partials/_layout.sass */
 .full-size {
   height: 100vh;
 }
 
-/* line 66, ../sass/partials/_layout.sass */
+/* line 64, ../sass/partials/_layout.sass */
 .top-header {
   display: flex;
   flex-direction: row;
   max-width: 700px;
+  transition: 1s ease-in-out;
 }
 
-/* line 71, ../sass/partials/_layout.sass */
+/* line 70, ../sass/partials/_layout.sass */
 .image-container {
   order: 0;
   margin-right: 10px;
@@ -202,7 +203,7 @@ body {
   max-width: 140px;
   height: 100%;
 }
-/* line 78, ../sass/partials/_layout.sass */
+/* line 77, ../sass/partials/_layout.sass */
 .image-container img {
   height: 100%;
   width: 100%;
@@ -210,7 +211,7 @@ body {
   object-position: top;
 }
 
-/* line 84, ../sass/partials/_layout.sass */
+/* line 83, ../sass/partials/_layout.sass */
 .header-container {
   order: 1;
   flex: 1 0 0px;
@@ -219,12 +220,12 @@ body {
   padding-top: 10px;
   transition: 2s ease-in-out;
 }
-/* line 92, ../sass/partials/_layout.sass */
+/* line 91, ../sass/partials/_layout.sass */
 .header-container h1, .header-container p {
   text-align: center;
 }
 
-/* line 95, ../sass/partials/_layout.sass */
+/* line 94, ../sass/partials/_layout.sass */
 .links-container {
   text-align: center;
   order: 1;
@@ -235,11 +236,11 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-/* line 105, ../sass/partials/_layout.sass */
+/* line 104, ../sass/partials/_layout.sass */
 .links-container p {
   padding: 0;
 }
-/* line 108, ../sass/partials/_layout.sass */
+/* line 107, ../sass/partials/_layout.sass */
 .links-container a {
   padding: 0;
   margin: 0;
@@ -361,4 +362,254 @@ body {
   50% {
     border-color: #00FFCC;
   }
+}
+/* line 1, ../sass/partials/_navigation.sass */
+ul {
+  display: none;
+  list-style-type: none;
+  transition: 1s ease-in-out;
+  z-index: 1;
+}
+
+/* line 7, ../sass/partials/_navigation.sass */
+li {
+  float: left;
+  transition: 1s ease-in-out;
+  height: 100%;
+  margin-left: 3px;
+  margin-right: 3px;
+  opacity: 0.8;
+}
+/* line 16, ../sass/partials/_navigation.sass */
+li:nth-child(1) {
+  animation: slide 300ms ease-in-out forwards;
+}
+/* line 16, ../sass/partials/_navigation.sass */
+li:nth-child(2) {
+  animation: slide 600ms ease-in-out forwards;
+}
+/* line 16, ../sass/partials/_navigation.sass */
+li:nth-child(3) {
+  animation: slide 900ms ease-in-out forwards;
+}
+/* line 16, ../sass/partials/_navigation.sass */
+li:nth-child(4) {
+  animation: slide 1200ms ease-in-out forwards;
+}
+/* line 22, ../sass/partials/_navigation.sass */
+li a {
+  box-sizing: border-box;
+  position: relative;
+  padding: 0.5em;
+  height: 100%;
+}
+/* line 28, ../sass/partials/_navigation.sass */
+li a::before, li a::after {
+  box-sizing: inherit;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* line 57, ../sass/partials/_navigation.sass */
+.draw, .draw-programming, .draw-photography, .draw-blog, .draw-resume {
+  transition: color 0.25s ease-in-out;
+}
+/* line 60, ../sass/partials/_navigation.sass */
+.draw::before, .draw-programming::before, .draw-photography::before, .draw-blog::before, .draw-resume::before, .draw::after, .draw-programming::after, .draw-photography::after, .draw-blog::after, .draw-resume::after {
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+/* line 67, ../sass/partials/_navigation.sass */
+.draw::before, .draw-programming::before, .draw-photography::before, .draw-blog::before, .draw-resume::before {
+  top: 0;
+  left: 0;
+}
+/* line 71, ../sass/partials/_navigation.sass */
+.draw::after, .draw-programming::after, .draw-photography::after, .draw-blog::after, .draw-resume::after {
+  top: 0;
+  left: 0;
+}
+/* line 75, ../sass/partials/_navigation.sass */
+.draw:hover, .draw-programming:hover, .draw-photography:hover, .draw-blog:hover, .draw-resume:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+/* line 79, ../sass/partials/_navigation.sass */
+.draw:hover::before, .draw-programming:hover::before, .draw-photography:hover::before, .draw-blog:hover::before, .draw-resume:hover::before, .draw:hover::after, .draw-programming:hover::after, .draw-photography:hover::after, .draw-blog:hover::after, .draw-resume:hover::after {
+  width: 100%;
+  height: 100%;
+}
+/* line 84, ../sass/partials/_navigation.sass */
+.draw:hover::before, .draw-programming:hover::before, .draw-photography:hover::before, .draw-blog:hover::before, .draw-resume:hover::before {
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+/* line 87, ../sass/partials/_navigation.sass */
+.draw:hover::after, .draw-programming:hover::after, .draw-photography:hover::after, .draw-blog:hover::after, .draw-resume:hover::after {
+  transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+}
+
+/* line 93, ../sass/partials/_navigation.sass */
+.draw-programming:hover {
+  color: #0059DB;
+  animation: opaque 200ms ease-in-out forwards;
+}
+/* line 97, ../sass/partials/_navigation.sass */
+.draw-programming:hover::before {
+  border-top-color: #0059DB;
+  border-right-color: #0059DB;
+}
+/* line 101, ../sass/partials/_navigation.sass */
+.draw-programming:hover::after {
+  border-bottom-color: #0059DB;
+  border-left-color: #0059DB;
+}
+
+/* line 105, ../sass/partials/_navigation.sass */
+.draw-programming-active {
+  background-color: #0059DB;
+  color: white;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  opacity: 1;
+}
+/* line 112, ../sass/partials/_navigation.sass */
+.draw-programming-active::after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-top-color: #0059DB;
+  border-width: 10px;
+  margin-left: -10px;
+}
+/* line 125, ../sass/partials/_navigation.sass */
+.draw-programming-active:hover {
+  color: white;
+}
+
+/* line 131, ../sass/partials/_navigation.sass */
+.draw-photography:hover {
+  color: #E8285A;
+}
+/* line 134, ../sass/partials/_navigation.sass */
+.draw-photography:hover::before {
+  border-top-color: #E8285A;
+  border-right-color: #E8285A;
+}
+/* line 138, ../sass/partials/_navigation.sass */
+.draw-photography:hover::after {
+  border-bottom-color: #E8285A;
+  border-left-color: #E8285A;
+}
+
+/* line 142, ../sass/partials/_navigation.sass */
+.draw-photography-active {
+  background-color: #E8285A;
+  color: white;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+/* line 148, ../sass/partials/_navigation.sass */
+.draw-photography-active::after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-top-color: #E8285A;
+  border-width: 15px;
+  margin-left: -15px;
+}
+/* line 161, ../sass/partials/_navigation.sass */
+.draw-photography-active:hover {
+  color: white;
+}
+
+/* line 167, ../sass/partials/_navigation.sass */
+.draw-blog:hover {
+  color: #C5518F;
+}
+/* line 170, ../sass/partials/_navigation.sass */
+.draw-blog:hover::before {
+  border-top-color: #C5518F;
+  border-right-color: #C5518F;
+}
+/* line 174, ../sass/partials/_navigation.sass */
+.draw-blog:hover::after {
+  border-bottom-color: #C5518F;
+  border-left-color: #C5518F;
+}
+
+/* line 178, ../sass/partials/_navigation.sass */
+.draw-blog-active {
+  background-color: #C5518F;
+  color: white;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+/* line 184, ../sass/partials/_navigation.sass */
+.draw-blog-active::after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-top-color: #C5518F;
+  border-width: 15px;
+  margin-left: -15px;
+}
+/* line 198, ../sass/partials/_navigation.sass */
+.draw-blog-active:hover {
+  color: white;
+}
+
+/* line 204, ../sass/partials/_navigation.sass */
+.draw-resume:hover {
+  color: #00FFCC;
+}
+/* line 207, ../sass/partials/_navigation.sass */
+.draw-resume:hover::before {
+  border-top-color: #00FFCC;
+  border-right-color: #00FFCC;
+}
+/* line 211, ../sass/partials/_navigation.sass */
+.draw-resume:hover::after {
+  border-bottom-color: #00FFCC;
+  border-left-color: #00FFCC;
+}
+
+/* line 215, ../sass/partials/_navigation.sass */
+.navigation {
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1.2em;
+  background-color: #222;
+}
+/* line 224, ../sass/partials/_navigation.sass */
+.navigation ul {
+  display: inline;
 }
