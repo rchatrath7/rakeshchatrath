@@ -270,13 +270,13 @@ checkPath paths target =
 navBar : Model -> Html Msg
 navBar model =
   div [ classList [ ( "navigation", ( checkPath [ "/home", "/" ] <| parseRoute model.currentRoute ) == False ) ] ]
-      [ ul [] [ li [] [ link [ ( "draw-programming", True )
+      [ ul [] [ li [] [ link [ ( "draw-programming", ( checkPath [ "/programming" ] <| parseRoute model.currentRoute ) == False )
                              , ( "draw-programming-active", ( checkPath [ "/programming" ] <| parseRoute model.currentRoute ) == True )
                              ] "Programming" "#/programming" ]
-              , li [] [ link [ ( "draw-photography", True )
+              , li [] [ link [ ( "draw-photography", ( checkPath [ "/photography" ] <| parseRoute model.currentRoute ) == False )
                              , ( "draw-photography-active", ( checkPath [ "/photography" ] <| parseRoute model.currentRoute ) == True )
                              ] "Photography" "#/photography" ]
-              , li [] [ link [ ( "draw-blog", True )
+              , li [] [ link [ ( "draw-blog", ( checkPath [ "/blog" ] <| parseRoute model.currentRoute ) == False )
                              , ( "draw-blog-active", ( checkPath [ "/blog" ] <| parseRoute model.currentRoute ) == True )
                              ] "Blog" "#/blog" ]
               , li [] [ link [ ( "draw-resume", True ) ] "Resume" "#/resume" ]

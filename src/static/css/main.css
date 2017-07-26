@@ -46,7 +46,7 @@ h3 {
 
 /* line 37, ../sass/partials/_typography.sass */
 h1.programming, p.programming {
-  color: #0059DB;
+  color: #B2B2B2;
 }
 
 /* line 40, ../sass/partials/_typography.sass */
@@ -92,7 +92,7 @@ a:hover {
 
 /* line 68, ../sass/partials/_typography.sass */
 .programming:hover {
-  color: #0059DB;
+  color: #B2B2B2;
 }
 
 /* line 72, ../sass/partials/_typography.sass */
@@ -336,7 +336,7 @@ body {
     border-color: transparent;
   }
   50% {
-    border-color: #0059DB;
+    border-color: #B2B2B2;
   }
 }
 @keyframes photography-caret {
@@ -461,23 +461,23 @@ li a::before, li a::after {
 
 /* line 93, ../sass/partials/_navigation.sass */
 .draw-programming:hover {
-  color: #0059DB;
+  color: #B2B2B2;
   animation: opaque 200ms ease-in-out forwards;
 }
 /* line 97, ../sass/partials/_navigation.sass */
 .draw-programming:hover::before {
-  border-top-color: #0059DB;
-  border-right-color: #0059DB;
+  border-top-color: #B2B2B2;
+  border-right-color: #B2B2B2;
 }
 /* line 101, ../sass/partials/_navigation.sass */
 .draw-programming:hover::after {
-  border-bottom-color: #0059DB;
-  border-left-color: #0059DB;
+  border-bottom-color: #B2B2B2;
+  border-left-color: #B2B2B2;
 }
 
 /* line 105, ../sass/partials/_navigation.sass */
 .draw-programming-active {
-  background-color: #0059DB;
+  background-color: #B2B2B2;
   color: white;
   transition: 0.5s ease-in-out;
   position: relative;
@@ -493,7 +493,7 @@ li a::before, li a::after {
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-top-color: #0059DB;
+  border-top-color: #B2B2B2;
   border-width: 10px;
   margin-left: -10px;
 }
