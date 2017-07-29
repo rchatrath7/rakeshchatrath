@@ -6,7 +6,7 @@ const photographyPath = require('./static/img/photography.svg')
 const blogPath = require('./static/img/blog.svg')
 const resumePath = require('./static/img/resume.svg')
 
-const Elm = require('./partials/App.elm')
+const Elm = require('./Partials/App.elm')
 
 const root = document.getElementById('root')
 
