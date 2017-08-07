@@ -378,7 +378,7 @@ li {
   height: 100%;
   margin-left: 3px;
   margin-right: 3px;
-  opacity: 0.8;
+  opacity: 1;
 }
 /* line 16, ../sass/partials/_navigation.sass */
 li:nth-child(1) {
@@ -535,8 +535,8 @@ li a::before, li a::after {
   position: absolute;
   pointer-events: none;
   border-top-color: #E8285A;
-  border-width: 15px;
-  margin-left: -15px;
+  border-width: 10px;
+  margin-left: -10px;
 }
 /* line 161, ../sass/partials/_navigation.sass */
 .draw-photography-active:hover {
@@ -576,8 +576,8 @@ li a::before, li a::after {
   position: absolute;
   pointer-events: none;
   border-top-color: #C5518F;
-  border-width: 15px;
-  margin-left: -15px;
+  border-width: 10px;
+  margin-left: -10px;
 }
 /* line 198, ../sass/partials/_navigation.sass */
 .draw-blog-active:hover {
@@ -612,4 +612,260 @@ li a::before, li a::after {
 /* line 224, ../sass/partials/_navigation.sass */
 .navigation ul {
   display: inline;
+}
+
+/* line 1, ../sass/partials/_programming.sass */
+.programming-body {
+  flex: 1;
+  display: flex;
+  height: 65vh;
+}
+
+/* Media Queries */
+/* Card sizing */
+/* Colors */
+/* Calculations */
+/* Placeholders */
+@media (min-width: 1000px) {
+  /* line 58, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(odd) .head::after, #timeline .demo-card:nth-child(even) .head::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+
+  /* line 66, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(odd) .head::before, #timeline .demo-card:nth-child(even) .head::before {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 9px;
+    background-color: #bdbdbd;
+    border-radius: 9px;
+    box-shadow: 0px 0px 2px 8px white;
+  }
+}
+/* Border Box */
+/* line 77, ../sass/partials/_programming.sass */
+* {
+  box-sizing: border-box;
+}
+
+/* line 80, ../sass/partials/_programming.sass */
+#timeline {
+  padding-bottom: 100px;
+  background: white;
+}
+/* line 84, ../sass/partials/_programming.sass */
+#timeline .demo-card-wrapper {
+  position: relative;
+  margin: auto;
+}
+@media (min-width: 1000px) {
+  /* line 84, ../sass/partials/_programming.sass */
+  #timeline .demo-card-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    width: 1470px;
+    height: 1540px;
+    margin: 0 auto;
+  }
+}
+/* line 96, ../sass/partials/_programming.sass */
+#timeline .demo-card-wrapper::after {
+  z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px solid rgba(191, 191, 191, 0.4);
+}
+@media (min-width: 1000px) {
+  /* line 96, ../sass/partials/_programming.sass */
+  #timeline .demo-card-wrapper::after {
+    border-left: 1px solid #bdbdbd;
+  }
+}
+/* line 108, ../sass/partials/_programming.sass */
+#timeline .demo-card {
+  position: relative;
+  display: block;
+  margin: 10px auto 80px;
+  max-width: 94%;
+  z-index: 2;
+  flex: 1 0 0;
+}
+@media (min-width: 480px) {
+  /* line 108, ../sass/partials/_programming.sass */
+  #timeline .demo-card {
+    max-width: 60%;
+    box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+  }
+}
+@media (min-width: 720px) {
+  /* line 108, ../sass/partials/_programming.sass */
+  #timeline .demo-card {
+    max-width: 40%;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 108, ../sass/partials/_programming.sass */
+  #timeline .demo-card {
+    max-width: 600px;
+    height: 500px;
+    margin: 90px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+  /* line 132, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(odd) {
+    margin-right: 45px;
+  }
+  /* line 135, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(odd) .head::after {
+    border-left-width: 10px;
+    border-left-style: solid;
+    left: 100%;
+  }
+  /* line 142, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(odd) .head::before {
+    left: 641.5px;
+  }
+  /* line 147, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(even) {
+    margin-left: 45px;
+  }
+  /* line 151, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(even) .head::after {
+    border-right-width: 10px;
+    border-right-style: solid;
+    right: 100%;
+  }
+  /* line 158, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(even) .head::before {
+    right: 639.5px;
+  }
+  /* line 163, ../sass/partials/_programming.sass */
+  #timeline .demo-card:nth-child(even) {
+    margin-top: 180px;
+  }
+}
+/* line 167, ../sass/partials/_programming.sass */
+#timeline .demo-card .head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+}
+@media (min-width: 1000px) {
+  /* line 167, ../sass/partials/_programming.sass */
+  #timeline .demo-card .head {
+    width: 600px;
+  }
+}
+/* line 177, ../sass/partials/_programming.sass */
+#timeline .demo-card .head .number-box {
+  display: inline;
+  float: left;
+  margin: 15px;
+  padding: 10px;
+  font: 35px "Decima Mono";
+  line-height: 35px;
+  font-weight: 400;
+  background: rgba(0, 0, 0, 0.17);
+}
+/* line 187, ../sass/partials/_programming.sass */
+#timeline .demo-card .head h2 {
+  text-transform: uppercase;
+  font-family: "Decima Pro";
+  font-size: 2rem;
+  font-weight: inherit;
+  letter-spacing: 3px;
+  margin: 0;
+  padding-bottom: 6px;
+  line-height: 1rem;
+}
+@media (min-width: 480px) {
+  /* line 187, ../sass/partials/_programming.sass */
+  #timeline .demo-card .head h2 {
+    font-size: 165%;
+    line-height: 1.2rem;
+  }
+}
+/* line 202, ../sass/partials/_programming.sass */
+#timeline .demo-card .head h2 span {
+  display: block;
+  font-family: "Decima Mono";
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 5px;
+  margin: 0;
+}
+@media (min-width: 480px) {
+  /* line 202, ../sass/partials/_programming.sass */
+  #timeline .demo-card .head h2 span {
+    font-size: 0.8rem;
+  }
+}
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card .body {
+  background: #fff;
+  border: 1px solid rgba(191, 191, 191, 0.4);
+  border-top: 0;
+  padding: 15px;
+}
+@media (min-width: 1000px) {
+  /* line 214, ../sass/partials/_programming.sass */
+  #timeline .demo-card .body {
+    height: 415px;
+  }
+}
+/* line 223, ../sass/partials/_programming.sass */
+#timeline .demo-card .body p {
+  margin: none;
+  padding: none;
+}
+/* line 227, ../sass/partials/_programming.sass */
+#timeline .demo-card .body img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  object-fit: contain;
+}
+/* line 234, ../sass/partials/_programming.sass */
+#timeline .demo-card--step1 {
+  background-color: #F58634;
+}
+/* line 239, ../sass/partials/_programming.sass */
+#timeline .demo-card--step1 .head::after {
+  border-color: #F58634;
+}
+/* line 234, ../sass/partials/_programming.sass */
+#timeline .demo-card--step2 {
+  background-color: #50BD9D;
+}
+/* line 239, ../sass/partials/_programming.sass */
+#timeline .demo-card--step2 .head::after {
+  border-color: #50BD9D;
+}
+/* line 234, ../sass/partials/_programming.sass */
+#timeline .demo-card--step3 {
+  background-color: #149BAD;
+}
+/* line 239, ../sass/partials/_programming.sass */
+#timeline .demo-card--step3 .head::after {
+  border-color: #149BAD;
+}
+/* line 234, ../sass/partials/_programming.sass */
+#timeline .demo-card--step4 {
+  background-color: #00A2AA;
+}
+/* line 239, ../sass/partials/_programming.sass */
+#timeline .demo-card--step4 .head::after {
+  border-color: #00A2AA;
 }
