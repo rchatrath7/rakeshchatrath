@@ -863,9 +863,9 @@ li a::before, li a::after {
 }
 /* line 234, ../sass/partials/_programming.sass */
 #timeline .demo-card--step4 {
-  background-color: #00A2AA;
+  background-color: #0044b5;
 }
 /* line 239, ../sass/partials/_programming.sass */
 #timeline .demo-card--step4 .head::after {
-  border-color: #00A2AA;
+  border-color: #0044b5;
 }
