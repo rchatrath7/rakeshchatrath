@@ -3,65 +3,14 @@
   display: flex
   height: 65vh
 
-/* Media Queries
-
-=mq-xs
-  @media (min-width: 320px)
-    @content
-
-=mq-sm
-  @media (min-width: 480px)
-    @content
-
-=mq-md
-  @media (min-width: 720px)
-    @content
-
-=mq-lg
-  @media (min-width: 1000px)
-    @content
-
-$background: white
-$box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07)
-$border: 1px solid rgba(191, 191, 191, 0.4)
-$items: 4
-$rows: ceil($items / 2)
-
-/* Card sizing
-
-$card-height: 500px
-$card-width: $content-width - 100px
-$inner-margin: 15px
-$number-size: 35px
-$stagger: 180px
-$outer-margin: 90px
-$marker-size: 9px
-
-/* Colors
-
-$steps: #46b8e9
-$colors: $recon, $raise, $riverside, $projects
-
-$timeline: #bdbdbd
-
-/* Calculations
-
-$container-height: $rows * ($card-height + $outer-margin) + $stagger * $rows
-$container-width: $card-width * 2 + $outer-margin * 3
-$head-height: $number-size + 50
-$body-height: $card-height - $head-height
-$marker-dist: $card-width + $outer-margin / 2 - $marker-size / 2
-
-/* Placeholders
-
 +mq-lg
   %arrow
     position: absolute
     content: ""
     width: 0
     height: 0
-    border-top: 10px solid transparent
-    border-bottom: 10px solid transparent
+    border-top: $timeline-arrow-border
+    border-bottom: $timeline-arrow-border
 
   %marker
     position: absolute
@@ -70,16 +19,15 @@ $marker-dist: $card-width + $outer-margin / 2 - $marker-size / 2
     height: $marker-size
     background-color: $timeline
     border-radius: $marker-size
-    box-shadow: 0px 0px 2px 8px $background
-
-/* Border Box
+    box-shadow: $timeline-marker-shadow
 
 *
   box-sizing: border-box
 
 #timeline
-  padding-bottom: 100px
-  background: $background
+  padding-bottom: $timeline-padding
+  border-bottom: 1px dashed $timeline
+  margin-bottom: $timeline-padding
 
   .demo-card-wrapper
     position: relative
@@ -146,7 +94,7 @@ $marker-dist: $card-width + $outer-margin / 2 - $marker-size / 2
 
       &:nth-child(even)
         margin-left: $outer-margin / 2
-        // left: 50%
+        margin-top: $stagger
 
         .head::after
           @extend %arrow
@@ -160,15 +108,12 @@ $marker-dist: $card-width + $outer-margin / 2 - $marker-size / 2
 
           right: $marker-dist - 1
 
-      &:nth-child(even)
-        margin-top: $stagger
-
 
     .head
       position: relative
       display: flex
       align-items: center
-      color: #fff
+      color: $timeline-header-color
       font-weight: $mono-header-weight
 
       +mq-lg
@@ -194,8 +139,10 @@ $marker-dist: $card-width + $outer-margin / 2 - $marker-size / 2
         padding-bottom: 6px
         line-height: 1rem
 
+        +mq-xs
+          font-size: 1.2rem
+
         +mq-sm
-          font-size: 165%
           line-height: 1.2rem
 
 
@@ -206,6 +153,9 @@ $marker-dist: $card-width + $outer-margin / 2 - $marker-size / 2
           font-size: 1rem
           letter-spacing: 5px
           margin: 0
+
+          +mq-xs
+            letter-spacing: 3px
 
 
           +mq-sm
