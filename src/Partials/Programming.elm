@@ -13,9 +13,9 @@ import Maybe exposing (Maybe, withDefault)
 collection : Collection
 collection =
   Dict.fromList
-    [ ( "recon", Image "src/static/img/programming/recon.png" 350 350 )
+    [ ( "recon", Image "src/static/img/programming/recon.png" 350 233 )
     , ( "raise", Image "src/static/img/programming/raise.png" 250 250 )
-    , ( "riverside", Image "src/static/img/programming/riverside-medical-center-squarelogo.png" 300 300 )
+    , ( "riverside", Image "src/static/img/programming/RHC-x.png" 400 100 )
     , ( "projects", Image "src/static/img/programming/projects.svg" 250 250 )
     , ( "logo", Image "src/static/img/logo.svg" 56 56)
     ]
@@ -34,7 +34,7 @@ programmingContent =
                       ]
                       [ div [ classList [ ( "head", True ) ] ]
                             [ div [ classList [ ( "number-box", True ) ] ]
-                                  [ span [] [ text "2016.17" ] ]
+                                  [ span [] [ text "2016-17" ] ]
                             , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Web Development Consultant" ]
                                     , text "Recon Sports Consultants"
                                     ]
@@ -50,7 +50,7 @@ programmingContent =
                       ]
                       [ div [ classList [ ( "head", True ) ] ]
                             [ div [ classList [ ( "number-box", True ) ] ]
-                                  [ span [] [ text "2016.17" ] ]
+                                  [ span [] [ text "2016" ] ]
                             , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Web Development Consultant" ]
                                     , text "Raise Inc."
                                     ]
@@ -66,7 +66,7 @@ programmingContent =
                       ]
                       [ div [ classList [ ( "head", True ) ] ]
                             [ div [ classList [ ( "number-box", True ) ] ]
-                                  [ span [] [ text "2016.17" ] ]
+                                  [ span [] [ text "2015" ] ]
                             , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Student Researcher" ]
                                     , text "Riverside Medical Center"
                                     ]
@@ -82,7 +82,7 @@ programmingContent =
                       ]
                       [ div [ classList [ ( "head", True ) ] ]
                             [ div [ classList [ ( "number-box", True ) ] ]
-                                  [ span [] [ text "2016.17" ] ]
+                                  [ span [] [ text "ONGOING" ] ]
                             , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Developer at Heart" ]
                                     , text "Projects"
                                     ]
