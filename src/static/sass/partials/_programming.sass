@@ -1,7 +1,8 @@
 .programming-body
   flex: 1
   display: flex
-  height: 65vh
+  flex-direction: column
+  order: 2
 
 +mq-lg
   %arrow
@@ -28,6 +29,7 @@
   padding-bottom: $timeline-padding
   border-bottom: 1px dashed $timeline
   margin-bottom: $timeline-padding
+  order: 0
 
   .demo-card-wrapper
     position: relative
@@ -188,3 +190,111 @@
 
         .head::after
           border-color: $color
+
+.title-reference
+  display: none
+  font-family: $mono-text-family
+  font-weight: $mono-text-weight
+  font-size: 4em
+  letter-spacing: 2px
+
+  +mq_lg
+    display: block
+
+
+.projects-container
+  display: flex
+  flex-direction: column
+  width: 100%
+  justify-content: space-between
+  order: 5
+
+  +mq-lg
+    flex-direction: row
+
+.projects-card
+  display: flex
+  flex-direction: column
+  position: relative
+  max-width: 94%
+  margin: $project-card-margin
+  border-top: solid 3px
+
+  +mq-sm
+    max-width: 60%
+    box-shadow: $box-shadow
+
+  +mq-md
+    max-width: 40%
+
+  +mq-lg
+    min-width: $container-width / $project-cols
+    max-width: $container-width / $project-items
+    width: 100%
+
+  .content-container
+    padding: $inner-margin
+    order: 1
+    width: 100%
+    border-bottom: 1px dashed $timeline
+    flex: 9
+    display: flex
+    flex-direction: column
+
+    h2
+      text-transform: uppercase
+      font-family: $mono-header-family
+      font-size: 3.5rem
+      font-weight: inherit
+      letter-spacing: 3px
+      margin: 0
+      padding-bottom: 6px
+      line-height: 1rem
+
+      +mq-xs
+        font-size: 1.2rem
+
+      +mq-sm
+        line-height: 1.2rem
+
+      a
+        padding: 0
+        margin: 0
+
+
+      span
+        display: block
+        font-family: $mono-text-family
+        font-weight: $mono-text-weight
+        font-size: 1rem
+        letter-spacing: 5px
+        margin: 0
+
+        +mq-xs
+          letter-spacing: 3px
+
+
+        +mq-sm
+          font-size: 0.8rem
+
+    img
+      display: block
+      margin: auto
+      object-fit: contain
+
+  .logos-container
+    order: 2
+    display: flex
+    flex: 1
+    flex-direction: row
+    overflow: hidden
+    padding: $inner-margin
+
+.personal 
+  border-color: $logo
+
+.designhub
+  border-color: $designhub
+
+.ptp
+  border-color: $ptp
