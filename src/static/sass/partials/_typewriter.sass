@@ -1,12 +1,18 @@
 .typewriter
   overflow: hidden
   border-right: .6em solid $base-text-color
-  white-space: nowrap
+  white-space: normal
   margin: 0 auto
   animation: typing 2.5s steps(50, end), blink-caret .75s step-end infinite
 
-  .programming, .photography, .blog, .resume
+  +mq-md
     white-space: nowrap
+
+  .programming, .photography, .blog, .resume
+    white-space: normal
+
+    +mq-md
+      white-space: nowrap
 
 .left-typewriter
   @extend .typewriter
