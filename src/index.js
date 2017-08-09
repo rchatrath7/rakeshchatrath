@@ -5,6 +5,7 @@ const programmingPath = require('./static/img/programming.svg')
 const photographyPath = require('./static/img/photography.svg')
 const blogPath = require('./static/img/blog.svg')
 const resumePath = require('./static/img/resume.svg')
+const resume = require('./static/pdf/resume.pdf')
 
 const Elm = require('./Partials/App.elm')
 
@@ -15,5 +16,6 @@ Elm.App.embed(root, {
   programmingPath: programmingPath,
   photographyPath: photographyPath,
   blogPath: blogPath,
-  resumePath: resumePath
+  resumePath: resumePath,
+  resume: resume
 });

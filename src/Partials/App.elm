@@ -41,7 +41,8 @@ type alias Flags =
       programmingPath : String,
       photographyPath : String,
       blogPath : String,
-      resumePath : String
+      resumePath : String,
+      resume : String
     }
 
 type RoutePath
@@ -50,7 +51,6 @@ type RoutePath
   | ProgrammingRoute
   | PhotographyRoute
   | BlogRoute
-  | ResumeRoute
   | NotFoundRoute
 
 components =
@@ -117,6 +117,7 @@ init flags location =
                                    , flags.photographyPath
                                    , flags.blogPath
                                    , flags.resumePath
+                                   , flags.resume
                                    ]
           , description = components.programming.description
           , indicator = components.programming.indicator
@@ -139,6 +140,7 @@ init flags location =
                     , flags.photographyPath
                     , flags.blogPath
                     , flags.resumePath
+                    , flags.resume
                     ]
           , description = components.photography.description
           , indicator = components.photography.indicator
@@ -161,6 +163,7 @@ init flags location =
                     , flags.photographyPath
                     , flags.blogPath
                     , flags.resumePath
+                    , flags.resume
                     ]
           , description = components.blog.description
           , indicator = components.blog.indicator
@@ -183,6 +186,7 @@ init flags location =
                     , flags.photographyPath
                     , flags.blogPath
                     , flags.resumePath
+                    , flags.resume
                     ]
           , description = components.resume.description
           , indicator = components.resume.indicator
@@ -205,6 +209,7 @@ init flags location =
                     , flags.photographyPath
                     , flags.blogPath
                     , flags.resumePath
+                    , flags.resume
                     ]
           , indicator = 0
           , description = components.default.description
@@ -428,9 +433,6 @@ fromUrlHash urlHash =
       [ "blog" ] ->
         BlogRoute
 
-      [ "resume" ] ->
-        ResumeRoute
-
       _  ->
         NotFoundRoute
 
@@ -478,7 +480,7 @@ navBar model =
               , li [] [ link [ ( "draw-blog", ( checkPath [ "/blog" ] <| parseRoute model.currentRoute ) == False )
                              , ( "draw-blog-active", ( checkPath [ "/blog" ] <| parseRoute model.currentRoute ) == True )
                              ] "Blog" "#/blog" ]
-              , li [] [ link [ ( "draw-resume", True ) ] "Resume" "#/resume" ]
+              , li [] [ link [ ( "draw-resume", True ) ] "Resume" <| slice 6 -1 <| toString <| Array.get 5 (model.paths) ]
               ]
       ]
 
@@ -544,7 +546,7 @@ homePage model =
       , p [ onMouseOver Partials.Messages.Resume
           , onMouseOut Partials.Messages.Default
           ]
-          [ link [ ("resume", True) ] "Resume" "#/resume" ]
+          [ link [ ("resume", True) ] "Resume" <| slice 6 -1 <| toString <| Array.get 5 (model.paths) ]
       ]
 
 programmingPage : Html Msg
@@ -558,10 +560,6 @@ photographyPage =
 blogPage : Html Msg
 blogPage =
    text "I write things."
-
-resumePage : Html Msg
-resumePage =
-   text "Please hire me."
 
 notFoundPage : Html Msg
 notFoundPage =
@@ -589,9 +587,6 @@ pageBody model =
 
       BlogRoute ->
         blogPage
-
-      ResumeRoute ->
-        resumePage
 
       NotFoundRoute ->
         notFoundPage
