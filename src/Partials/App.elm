@@ -104,27 +104,122 @@ components =
 
 init : Flags -> Navigation.Location -> ( Model, Cmd Msg )
 init flags location =
-    ( { title = components.default.title
-      , paths = Array.fromList [ flags.logoPath
-                , flags.programmingPath
-                , flags.photographyPath
-                , flags.blogPath
-                , flags.resumePath
-                ]
-      , indicator = 0
-      , description = components.default.description
-      , isDefault = components.default.isDefault
-      , isProgramming = components.default.isProgramming
-      , isPhotography = components.default.isPhotography
-      , isBlog = components.default.isBlog
-      , isResume = components.default.isResume
-      , hasLeftLink = False
-      , isFull = True
-      , currentRoute = location
-      , isMobileVisible = False
-      }
-    , Cmd.none
-    )
+  let
+    route =
+      parseRoute location
+  in
+    case route of
+
+      "/programming" ->
+        ( { title = components.programming.title
+          , paths = Array.fromList [ flags.logoPath
+                                   , flags.programmingPath
+                                   , flags.photographyPath
+                                   , flags.blogPath
+                                   , flags.resumePath
+                                   ]
+          , description = components.programming.description
+          , indicator = components.programming.indicator
+          , isDefault = components.programming.isDefault
+          , isProgramming = components.programming.isProgramming
+          , isPhotography = components.programming.isPhotography
+          , isBlog = components.programming.isBlog
+          , isResume = components.programming.isResume
+          , hasLeftLink = False
+          , isFull = False
+          , currentRoute = location
+          , isMobileVisible = False
+          }
+        , Cmd.none )
+
+      "/photography" ->
+        ( { title = components.photography.title
+          , paths = Array.fromList [ flags.logoPath
+                    , flags.programmingPath
+                    , flags.photographyPath
+                    , flags.blogPath
+                    , flags.resumePath
+                    ]
+          , description = components.photography.description
+          , indicator = components.photography.indicator
+          , isDefault = components.photography.isDefault
+          , isProgramming = components.photography.isProgramming
+          , isPhotography = components.photography.isPhotography
+          , isBlog = components.photography.isBlog
+          , isResume = components.photography.isResume
+          , hasLeftLink = False
+          , isFull = False
+          , currentRoute = location
+          , isMobileVisible = False
+          }
+        , Cmd.none )
+
+      "/blog" ->
+        ( { title = components.blog.title
+          , paths = Array.fromList [ flags.logoPath
+                    , flags.programmingPath
+                    , flags.photographyPath
+                    , flags.blogPath
+                    , flags.resumePath
+                    ]
+          , description = components.blog.description
+          , indicator = components.blog.indicator
+          , isDefault = components.blog.isDefault
+          , isProgramming = components.blog.isProgramming
+          , isPhotography = components.blog.isPhotography
+          , isBlog = components.blog.isBlog
+          , isResume = components.blog.isResume
+          , hasLeftLink = False
+          , isFull = False
+          , currentRoute = location
+          , isMobileVisible = False
+          }
+        , Cmd.none )
+
+      "/resume" ->
+        ( { title = components.resume.title
+          , paths = Array.fromList [ flags.logoPath
+                    , flags.programmingPath
+                    , flags.photographyPath
+                    , flags.blogPath
+                    , flags.resumePath
+                    ]
+          , description = components.resume.description
+          , indicator = components.resume.indicator
+          , isDefault = components.resume.isDefault
+          , isProgramming = components.resume.isProgramming
+          , isPhotography = components.resume.isPhotography
+          , isBlog = components.resume.isBlog
+          , isResume = components.resume.isResume
+          , hasLeftLink = False
+          , isFull = False
+          , currentRoute = location
+          , isMobileVisible = False
+          }
+        , Cmd.none )
+
+      _ ->
+        ( { title = components.default.title
+          , paths = Array.fromList [ flags.logoPath
+                    , flags.programmingPath
+                    , flags.photographyPath
+                    , flags.blogPath
+                    , flags.resumePath
+                    ]
+          , indicator = 0
+          , description = components.default.description
+          , isDefault = components.default.isDefault
+          , isProgramming = components.default.isProgramming
+          , isPhotography = components.default.isPhotography
+          , isBlog = components.default.isBlog
+          , isResume = components.default.isResume
+          , hasLeftLink = False
+          , isFull = True
+          , currentRoute = location
+          , isMobileVisible = False
+          }
+        , Cmd.none
+        )
 
 
 
