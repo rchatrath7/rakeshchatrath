@@ -33,6 +33,7 @@ type alias Model =
     , hasLeftLink : Bool
     , isFull : Bool
     , currentRoute : Navigation.Location
+    , isMobileVisible : Bool
     }
 
 type alias Flags =
@@ -120,6 +121,7 @@ init flags location =
       , hasLeftLink = False
       , isFull = True
       , currentRoute = location
+      , isMobileVisible = False
       }
     , Cmd.none
     )
@@ -199,11 +201,111 @@ update msg model =
         }
       , Cmd.none )
     Partials.Messages.UrlChange location ->
+      let
+        route =
+          parseRoute location
+      in
+        case route of
+
+          "/" ->
+            ( { model
+              | currentRoute = location
+              , isDefault = components.default.isDefault
+              , isProgramming = components.default.isProgramming
+              , isPhotography = components.default.isPhotography
+              , isBlog = components.default.isBlog
+              , isResume = components.default.isResume
+              , hasLeftLink = True
+              }
+            , Cmd.none )
+
+          "/home" ->
+            ( { model
+              | currentRoute = location
+              , isDefault = components.default.isDefault
+              , isProgramming = components.default.isProgramming
+              , isPhotography = components.default.isPhotography
+              , isBlog = components.default.isBlog
+              , isResume = components.default.isResume
+              , hasLeftLink = True
+              }
+            , Cmd.none )
+
+          "/programming" ->
+            ( { model
+              | title = components.programming.title
+              , description = components.programming.description
+              , indicator = components.programming.indicator
+              , isDefault = components.programming.isDefault
+              , isProgramming = components.programming.isProgramming
+              , isPhotography = components.programming.isPhotography
+              , isBlog = components.programming.isBlog
+              , isResume = components.programming.isResume
+              , hasLeftLink = False
+              , currentRoute = location
+              }
+            , Cmd.none )
+
+          "/photography" ->
+            ( { model
+              | title = components.photography.title
+              , description = components.photography.description
+              , indicator = components.photography.indicator
+              , isDefault = components.photography.isDefault
+              , isProgramming = components.photography.isProgramming
+              , isPhotography = components.photography.isPhotography
+              , isBlog = components.photography.isBlog
+              , isResume = components.photography.isResume
+              , hasLeftLink = False
+              , currentRoute = location
+              }
+            , Cmd.none )
+
+          "/blog" ->
+            ( { model
+              | title = components.blog.title
+              , description = components.blog.description
+              , indicator = components.blog.indicator
+              , isDefault = components.blog.isDefault
+              , isProgramming = components.blog.isProgramming
+              , isPhotography = components.blog.isPhotography
+              , isBlog = components.blog.isBlog
+              , isResume = components.blog.isResume
+              , hasLeftLink = False
+              , currentRoute = location
+              }
+            , Cmd.none )
+
+          "/resume" ->
+            ( { model
+              | title = components.resume.title
+              , description = components.resume.description
+              , indicator = components.resume.indicator
+              , isDefault = components.resume.isDefault
+              , isProgramming = components.resume.isProgramming
+              , isPhotography = components.resume.isPhotography
+              , isBlog = components.resume.isBlog
+              , isResume = components.resume.isResume
+              , hasLeftLink = False
+              , currentRoute = location
+              }
+            , Cmd.none )
+
+          _ ->
+            ( { model
+              | currentRoute = location
+              }
+            , Cmd.none )
+    Partials.Messages.ShowMobile ->
       ( { model
-        | currentRoute  = location
+        | isMobileVisible = True
         }
       , Cmd.none )
-
+    Partials.Messages.HideMobile ->
+      ( { model
+        | isMobileVisible = False
+        }
+      , Cmd.none )
 
 ---- Navigation ----
 
@@ -262,8 +364,17 @@ checkPath paths target =
 
 navBar : Model -> Html Msg
 navBar model =
-  div [ classList [ ( "navigation", ( checkPath [ "/home", "/" ] <| parseRoute model.currentRoute ) == False ) ] ]
-      [ ul [] [ li [] [ link [ ( "draw-programming", ( checkPath [ "/programming" ] <| parseRoute model.currentRoute ) == False )
+  div [ classList [ ( "navigation", ( checkPath [ "/home", "/" ] <| parseRoute model.currentRoute ) == False )
+                  , ( "navigation-mobile-visible", model.isMobileVisible )
+                  ]
+      ]
+      [ i [ onClick Partials.Messages.ShowMobile
+          , classList [ ( "fa fa-bars", model.isMobileVisible == False && ( checkPath [ "/", "/home" ] <| parseRoute model.currentRoute ) == False ) ]
+          ] []
+      , i [ onClick Partials.Messages.HideMobile
+          , classList [ ( "fa fa-times", model.isMobileVisible ) ]
+          ] []
+      , ul [] [ li [] [ link [ ( "draw-programming", ( checkPath [ "/programming" ] <| parseRoute model.currentRoute ) == False )
                              , ( "draw-programming-active", ( checkPath [ "/programming" ] <| parseRoute model.currentRoute ) == True )
                              ] "Programming" "#/programming" ]
               , li [] [ link [ ( "draw-photography", ( checkPath [ "/photography" ] <| parseRoute model.currentRoute ) == False )
