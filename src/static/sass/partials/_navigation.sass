@@ -12,9 +12,11 @@ li
   margin-right: 3px
   opacity: 1
 
-  @for $i from 1 through 4
-    &:nth-child(#{$i})
-      animation: slide 300ms*$i ease-in-out forwards
+  +mq-md
+
+    @for $i from 1 through 4
+      &:nth-child(#{$i})
+        animation: slide 300ms*$i ease-in-out forwards
 
   // &:hover
   //   animation: bounce .5s .5s forwards
@@ -32,6 +34,9 @@ li
       position: absolute
       width: 100%
       height: 100%
+
+  +mq-md
+    background-color: $bg-dk-grey
 
 @keyframes slide
   0%
@@ -109,21 +114,23 @@ li
   position: relative
   opacity: 1
 
-  &::after
-    top: 100%
-    left: 50%
-    border: solid transparent
-    content: " "
-    height: 0
-    width: 0
-    position: absolute
-    pointer-events: none
-    border-top-color: $programming
-    border-width: 10px
-    margin-left: -10px
+  +mq-md
 
-  &:hover
-    color: white
+    &::after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-top-color: $programming
+      border-width: 10px
+      margin-left: -10px
+
+    &:hover
+      color: white
 
 .draw-photography
   @extend .draw
@@ -145,18 +152,20 @@ li
   transition: .5s ease-in-out
   opacity: 1
 
-  &::after
-    top: 100%
-    left: 50%
-    border: solid transparent
-    content: " "
-    height: 0
-    width: 0
-    position: absolute
-    pointer-events: none
-    border-top-color: $photography
-    border-width: 10px
-    margin-left: -10px
+  +mq-md
+
+    &::after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-top-color: $photography
+      border-width: 10px
+      margin-left: -10px
 
   &:hover
     color: white
@@ -181,18 +190,19 @@ li
   transition: .5s ease-in-out
   opacity: 1
 
-  &::after
-    top: 100%
-    left: 50%
-    border: solid transparent
-    content: " "
-    height: 0
-    width: 0
-    position: absolute
-    pointer-events: none
-    border-top-color: $blog
-    border-width: 10px
-    margin-left: -10px
+  +mq-md
+    &::after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-top-color: $blog
+      border-width: 10px
+      margin-left: -10px
 
 
   &:hover
@@ -213,13 +223,46 @@ li
     border-left-color: $resume
 
 .navigation
-  height: 5vh
   width: 100%
   display: flex
   align-items: center
-  justify-content: flex-end
   font-size: 1.2em
   background-color: $bg-dk-grey
 
-  ul
-    display: inline
+  .fa
+    display: block
+    color: white
+    font-size: 1.5em
+
+  +mq-xs
+    height: auto
+    justify-content: center
+
+  +mq-md
+    height: 5vh
+    justify-content: flex-end
+
+    ul
+      display: inline
+
+    .fa
+      display: none
+
++mq-xs
+  .navigation-mobile-visible
+    flex-direction: column
+    +mq-xs
+      ul
+        display: flex
+        width: 100%
+        height: 100vh
+        flex-direction: column
+        padding: 0
+        margin: 0
+        margin-top: 10px
+
+      li
+        width: 100%
+        text-align: center
+        margin: 0
+        padding: 0
