@@ -209,8 +209,12 @@
   justify-content: space-between
   order: 5
 
+  +mq-md
+    align-items: center
+
   +mq-lg
     flex-direction: row
+    align-items: baseline
 
 .projects-card
   display: flex
@@ -290,7 +294,7 @@
     overflow: hidden
     padding: $inner-margin
 
-.personal 
+.personal
   border-color: $logo
 
 .designhub

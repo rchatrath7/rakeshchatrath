@@ -1060,14 +1060,21 @@ li a::before, li a::after {
   justify-content: space-between;
   order: 5;
 }
+@media (min-width: 720px) {
+  /* line 205, ../sass/partials/_programming.sass */
+  .projects-container {
+    align-items: center;
+  }
+}
 @media (min-width: 1320px) {
   /* line 205, ../sass/partials/_programming.sass */
   .projects-container {
     flex-direction: row;
+    align-items: baseline;
   }
 }
 
-/* line 215, ../sass/partials/_programming.sass */
+/* line 219, ../sass/partials/_programming.sass */
 .projects-card {
   display: flex;
   flex-direction: column;
@@ -1077,27 +1084,27 @@ li a::before, li a::after {
   border-top: solid 3px;
 }
 @media (min-width: 480px) {
-  /* line 215, ../sass/partials/_programming.sass */
+  /* line 219, ../sass/partials/_programming.sass */
   .projects-card {
     max-width: 60%;
     box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
   }
 }
 @media (min-width: 720px) {
-  /* line 215, ../sass/partials/_programming.sass */
+  /* line 219, ../sass/partials/_programming.sass */
   .projects-card {
     max-width: 40%;
   }
 }
 @media (min-width: 1320px) {
-  /* line 215, ../sass/partials/_programming.sass */
+  /* line 219, ../sass/partials/_programming.sass */
   .projects-card {
     min-width: 367.5px;
     max-width: 367.5px;
     width: 100%;
   }
 }
-/* line 235, ../sass/partials/_programming.sass */
+/* line 239, ../sass/partials/_programming.sass */
 .projects-card .content-container {
   padding: 15px;
   order: 1;
@@ -1107,7 +1114,7 @@ li a::before, li a::after {
   display: flex;
   flex-direction: column;
 }
-/* line 244, ../sass/partials/_programming.sass */
+/* line 248, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 {
   text-transform: uppercase;
   font-family: "Decima Pro";
@@ -1119,23 +1126,23 @@ li a::before, li a::after {
   line-height: 1rem;
 }
 @media (min-width: 320px) {
-  /* line 244, ../sass/partials/_programming.sass */
+  /* line 248, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 {
     font-size: 1.2rem;
   }
 }
 @media (min-width: 480px) {
-  /* line 244, ../sass/partials/_programming.sass */
+  /* line 248, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 {
     line-height: 1.2rem;
   }
 }
-/* line 260, ../sass/partials/_programming.sass */
+/* line 264, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 a {
   padding: 0;
   margin: 0;
 }
-/* line 265, ../sass/partials/_programming.sass */
+/* line 269, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 span {
   display: block;
   font-family: "Decima Mono";
@@ -1145,24 +1152,24 @@ li a::before, li a::after {
   margin: 0;
 }
 @media (min-width: 320px) {
-  /* line 265, ../sass/partials/_programming.sass */
+  /* line 269, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     letter-spacing: 3px;
   }
 }
 @media (min-width: 480px) {
-  /* line 265, ../sass/partials/_programming.sass */
+  /* line 269, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     font-size: 0.8rem;
   }
 }
-/* line 280, ../sass/partials/_programming.sass */
+/* line 284, ../sass/partials/_programming.sass */
 .projects-card .content-container img {
   display: block;
   margin: auto;
   object-fit: contain;
 }
-/* line 285, ../sass/partials/_programming.sass */
+/* line 289, ../sass/partials/_programming.sass */
 .projects-card .logos-container {
   order: 2;
   display: flex;
@@ -1172,17 +1179,17 @@ li a::before, li a::after {
   padding: 15px;
 }
 
-/* line 293, ../sass/partials/_programming.sass */
+/* line 297, ../sass/partials/_programming.sass */
 .personal {
   border-color: #333332;
 }
 
-/* line 296, ../sass/partials/_programming.sass */
+/* line 300, ../sass/partials/_programming.sass */
 .designhub {
   border-color: #1B549E;
 }
 
-/* line 299, ../sass/partials/_programming.sass */
+/* line 303, ../sass/partials/_programming.sass */
 .ptp {
   border-color: #E2414B;
 }
