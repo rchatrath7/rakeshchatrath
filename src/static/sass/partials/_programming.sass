@@ -62,6 +62,19 @@
     max-width: 94%
     z-index: 2
     flex: 1 0 0
+    transition: 1s ease-in-out
+
+    @for $i from 1 through 4
+      &:nth-child(#{$i})
+        animation: drop 400ms*$i ease-in-out forwards
+
+    @keyframes drop
+      0%
+        transform: translateY(-100px)
+        opacity: 0
+      100%
+        transform: translateY(0)
+        opacity: 1
 
     +mq-sm
       max-width: 60%

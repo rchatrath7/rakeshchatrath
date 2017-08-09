@@ -857,6 +857,33 @@ li a::before, li a::after {
   max-width: 94%;
   z-index: 2;
   flex: 1 0 0;
+  transition: 1s ease-in-out;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(1) {
+  animation: drop 400ms ease-in-out forwards;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(2) {
+  animation: drop 800ms ease-in-out forwards;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(3) {
+  animation: drop 1200ms ease-in-out forwards;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(4) {
+  animation: drop 1600ms ease-in-out forwards;
+}
+@keyframes drop {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @media (min-width: 480px) {
   /* line 58, ../sass/partials/_programming.sass */
@@ -880,37 +907,37 @@ li a::before, li a::after {
     margin-top: 45px;
     margin-bottom: 45px;
   }
-  /* line 82, ../sass/partials/_programming.sass */
+  /* line 95, ../sass/partials/_programming.sass */
   #timeline .demo-card:nth-child(odd) {
     margin-right: 45px;
   }
-  /* line 85, ../sass/partials/_programming.sass */
+  /* line 98, ../sass/partials/_programming.sass */
   #timeline .demo-card:nth-child(odd) .head::after {
     border-left-width: 10px;
     border-left-style: solid;
     left: 100%;
   }
-  /* line 92, ../sass/partials/_programming.sass */
+  /* line 105, ../sass/partials/_programming.sass */
   #timeline .demo-card:nth-child(odd) .head::before {
     left: 641.5px;
   }
-  /* line 97, ../sass/partials/_programming.sass */
+  /* line 110, ../sass/partials/_programming.sass */
   #timeline .demo-card:nth-child(even) {
     margin-left: 45px;
     margin-top: 180px;
   }
-  /* line 101, ../sass/partials/_programming.sass */
+  /* line 114, ../sass/partials/_programming.sass */
   #timeline .demo-card:nth-child(even) .head::after {
     border-right-width: 10px;
     border-right-style: solid;
     right: 100%;
   }
-  /* line 108, ../sass/partials/_programming.sass */
+  /* line 121, ../sass/partials/_programming.sass */
   #timeline .demo-card:nth-child(even) .head::before {
     right: 639.5px;
   }
 }
-/* line 114, ../sass/partials/_programming.sass */
+/* line 127, ../sass/partials/_programming.sass */
 #timeline .demo-card .head {
   position: relative;
   display: flex;
@@ -919,12 +946,12 @@ li a::before, li a::after {
   font-weight: 700;
 }
 @media (min-width: 1320px) {
-  /* line 114, ../sass/partials/_programming.sass */
+  /* line 127, ../sass/partials/_programming.sass */
   #timeline .demo-card .head {
     width: 600px;
   }
 }
-/* line 124, ../sass/partials/_programming.sass */
+/* line 137, ../sass/partials/_programming.sass */
 #timeline .demo-card .head .number-box {
   display: inline;
   float: left;
@@ -935,7 +962,7 @@ li a::before, li a::after {
   font-weight: 400;
   background: rgba(0, 0, 0, 0.17);
 }
-/* line 134, ../sass/partials/_programming.sass */
+/* line 147, ../sass/partials/_programming.sass */
 #timeline .demo-card .head h2 {
   text-transform: uppercase;
   font-family: "Decima Pro";
@@ -947,18 +974,18 @@ li a::before, li a::after {
   line-height: 1rem;
 }
 @media (min-width: 320px) {
-  /* line 134, ../sass/partials/_programming.sass */
+  /* line 147, ../sass/partials/_programming.sass */
   #timeline .demo-card .head h2 {
     font-size: 1.2rem;
   }
 }
 @media (min-width: 480px) {
-  /* line 134, ../sass/partials/_programming.sass */
+  /* line 147, ../sass/partials/_programming.sass */
   #timeline .demo-card .head h2 {
     line-height: 1.2rem;
   }
 }
-/* line 151, ../sass/partials/_programming.sass */
+/* line 164, ../sass/partials/_programming.sass */
 #timeline .demo-card .head h2 span {
   display: block;
   font-family: "Decima Mono";
@@ -968,18 +995,18 @@ li a::before, li a::after {
   margin: 0;
 }
 @media (min-width: 320px) {
-  /* line 151, ../sass/partials/_programming.sass */
+  /* line 164, ../sass/partials/_programming.sass */
   #timeline .demo-card .head h2 span {
     letter-spacing: 3px;
   }
 }
 @media (min-width: 480px) {
-  /* line 151, ../sass/partials/_programming.sass */
+  /* line 164, ../sass/partials/_programming.sass */
   #timeline .demo-card .head h2 span {
     font-size: 0.8rem;
   }
 }
-/* line 166, ../sass/partials/_programming.sass */
+/* line 179, ../sass/partials/_programming.sass */
 #timeline .demo-card .body {
   background: #fff;
   border: 1px solid rgba(191, 191, 191, 0.4);
@@ -987,57 +1014,57 @@ li a::before, li a::after {
   padding: 15px;
 }
 @media (min-width: 1320px) {
-  /* line 166, ../sass/partials/_programming.sass */
+  /* line 179, ../sass/partials/_programming.sass */
   #timeline .demo-card .body {
     height: 415px;
   }
 }
-/* line 175, ../sass/partials/_programming.sass */
+/* line 188, ../sass/partials/_programming.sass */
 #timeline .demo-card .body p {
   margin: none;
   padding: none;
 }
-/* line 179, ../sass/partials/_programming.sass */
+/* line 192, ../sass/partials/_programming.sass */
 #timeline .demo-card .body img {
   display: block;
   margin: auto;
   width: 100%;
   object-fit: contain;
 }
-/* line 186, ../sass/partials/_programming.sass */
+/* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step1 {
   background-color: #F58634;
 }
-/* line 191, ../sass/partials/_programming.sass */
+/* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step1 .head::after {
   border-color: #F58634;
 }
-/* line 186, ../sass/partials/_programming.sass */
+/* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step2 {
   background-color: #50BD9D;
 }
-/* line 191, ../sass/partials/_programming.sass */
+/* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step2 .head::after {
   border-color: #50BD9D;
 }
-/* line 186, ../sass/partials/_programming.sass */
+/* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step3 {
   background-color: #149BAD;
 }
-/* line 191, ../sass/partials/_programming.sass */
+/* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step3 .head::after {
   border-color: #149BAD;
 }
-/* line 186, ../sass/partials/_programming.sass */
+/* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step4 {
   background-color: #0044b5;
 }
-/* line 191, ../sass/partials/_programming.sass */
+/* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step4 .head::after {
   border-color: #0044b5;
 }
 
-/* line 194, ../sass/partials/_programming.sass */
+/* line 207, ../sass/partials/_programming.sass */
 .title-reference {
   display: none;
   font-family: "Decima Mono";
@@ -1046,13 +1073,13 @@ li a::before, li a::after {
   letter-spacing: 2px;
 }
 @media (min-width: 1320px) {
-  /* line 194, ../sass/partials/_programming.sass */
+  /* line 207, ../sass/partials/_programming.sass */
   .title-reference {
     display: block;
   }
 }
 
-/* line 205, ../sass/partials/_programming.sass */
+/* line 218, ../sass/partials/_programming.sass */
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -1061,20 +1088,20 @@ li a::before, li a::after {
   order: 5;
 }
 @media (min-width: 720px) {
-  /* line 205, ../sass/partials/_programming.sass */
+  /* line 218, ../sass/partials/_programming.sass */
   .projects-container {
     align-items: center;
   }
 }
 @media (min-width: 1320px) {
-  /* line 205, ../sass/partials/_programming.sass */
+  /* line 218, ../sass/partials/_programming.sass */
   .projects-container {
     flex-direction: row;
     align-items: baseline;
   }
 }
 
-/* line 219, ../sass/partials/_programming.sass */
+/* line 232, ../sass/partials/_programming.sass */
 .projects-card {
   display: flex;
   flex-direction: column;
@@ -1084,27 +1111,27 @@ li a::before, li a::after {
   border-top: solid 3px;
 }
 @media (min-width: 480px) {
-  /* line 219, ../sass/partials/_programming.sass */
+  /* line 232, ../sass/partials/_programming.sass */
   .projects-card {
     max-width: 60%;
     box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
   }
 }
 @media (min-width: 720px) {
-  /* line 219, ../sass/partials/_programming.sass */
+  /* line 232, ../sass/partials/_programming.sass */
   .projects-card {
     max-width: 40%;
   }
 }
 @media (min-width: 1320px) {
-  /* line 219, ../sass/partials/_programming.sass */
+  /* line 232, ../sass/partials/_programming.sass */
   .projects-card {
     min-width: 367.5px;
     max-width: 367.5px;
     width: 100%;
   }
 }
-/* line 239, ../sass/partials/_programming.sass */
+/* line 252, ../sass/partials/_programming.sass */
 .projects-card .content-container {
   padding: 15px;
   order: 1;
@@ -1114,7 +1141,7 @@ li a::before, li a::after {
   display: flex;
   flex-direction: column;
 }
-/* line 248, ../sass/partials/_programming.sass */
+/* line 261, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 {
   text-transform: uppercase;
   font-family: "Decima Pro";
@@ -1126,23 +1153,23 @@ li a::before, li a::after {
   line-height: 1rem;
 }
 @media (min-width: 320px) {
-  /* line 248, ../sass/partials/_programming.sass */
+  /* line 261, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 {
     font-size: 1.2rem;
   }
 }
 @media (min-width: 480px) {
-  /* line 248, ../sass/partials/_programming.sass */
+  /* line 261, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 {
     line-height: 1.2rem;
   }
 }
-/* line 264, ../sass/partials/_programming.sass */
+/* line 277, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 a {
   padding: 0;
   margin: 0;
 }
-/* line 269, ../sass/partials/_programming.sass */
+/* line 282, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 span {
   display: block;
   font-family: "Decima Mono";
@@ -1152,24 +1179,24 @@ li a::before, li a::after {
   margin: 0;
 }
 @media (min-width: 320px) {
-  /* line 269, ../sass/partials/_programming.sass */
+  /* line 282, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     letter-spacing: 3px;
   }
 }
 @media (min-width: 480px) {
-  /* line 269, ../sass/partials/_programming.sass */
+  /* line 282, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     font-size: 0.8rem;
   }
 }
-/* line 284, ../sass/partials/_programming.sass */
+/* line 297, ../sass/partials/_programming.sass */
 .projects-card .content-container img {
   display: block;
   margin: auto;
   object-fit: contain;
 }
-/* line 289, ../sass/partials/_programming.sass */
+/* line 302, ../sass/partials/_programming.sass */
 .projects-card .logos-container {
   order: 2;
   display: flex;
@@ -1179,17 +1206,17 @@ li a::before, li a::after {
   padding: 15px;
 }
 
-/* line 297, ../sass/partials/_programming.sass */
+/* line 310, ../sass/partials/_programming.sass */
 .personal {
   border-color: #333332;
 }
 
-/* line 300, ../sass/partials/_programming.sass */
+/* line 313, ../sass/partials/_programming.sass */
 .designhub {
   border-color: #1B549E;
 }
 
-/* line 303, ../sass/partials/_programming.sass */
+/* line 316, ../sass/partials/_programming.sass */
 .ptp {
   border-color: #E2414B;
 }
