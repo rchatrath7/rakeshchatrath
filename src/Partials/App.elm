@@ -1,9 +1,11 @@
 module App exposing (..)
 
-import Partials.Programming exposing (..)
 import Partials.Messages exposing (Msg)
+import Partials.Programming exposing (..)
+import Partials.Photography exposing (..)
+import Partials.Blog exposing (..)
 
-import Html exposing (Html, text, div, img, h1, a, p, i, ul, li)
+import Html exposing (Html, text, div, img, h1, h2, a, p, i, ul, li)
 import Html.Attributes exposing (src, classList, href)
 import Html.Events exposing (onMouseOver, onMouseOut, onMouseEnter, onMouseLeave, onClick)
 
@@ -555,11 +557,11 @@ programmingPage =
 
 photographyPage : Html Msg
 photographyPage =
-   text "I take pictures."
+   photographyContent
 
 blogPage : Html Msg
 blogPage =
-   text "I write things."
+   blogContent
 
 notFoundPage : Html Msg
 notFoundPage =
