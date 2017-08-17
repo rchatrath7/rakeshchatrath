@@ -1220,3 +1220,65 @@ li a::before, li a::after {
 .ptp {
   border-color: #E2414B;
 }
+
+/* line 1, ../sass/partials/_photography.sass */
+.photography-container {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  order: 1;
+}
+@media (min-width: 320px) {
+  /* line 1, ../sass/partials/_photography.sass */
+  .photography-container {
+    max-width: 94%;
+  }
+}
+@media (min-width: 720px) {
+  /* line 1, ../sass/partials/_photography.sass */
+  .photography-container {
+    max-width: 700px;
+  }
+}
+
+/* line 13, ../sass/partials/_photography.sass */
+.photo-container, .photo-container-xs, .photo-container-md {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 15px;
+}
+/* line 19, ../sass/partials/_photography.sass */
+.photo-container img, .photo-container-xs img, .photo-container-md img {
+  display: block;
+  width: 100%;
+  object-fit: scale-down;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 720px) {
+  /* line 13, ../sass/partials/_photography.sass */
+  .photo-container, .photo-container-xs, .photo-container-md {
+    max-width: 320px;
+    max-height: 700px;
+  }
+}
+/* line 30, ../sass/partials/_photography.sass */
+.photo-container .description, .photo-container-xs .description, .photo-container-md .description {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  /* line 33, ../sass/partials/_photography.sass */
+  .photo-container-xs {
+    max-width: 233.33333px;
+    height: 100%;
+  }
+}
+
+@media (min-width: 720px) {
+  /* line 39, ../sass/partials/_photography.sass */
+  .photo-container-md {
+    max-width: 405px;
+  }
+}
