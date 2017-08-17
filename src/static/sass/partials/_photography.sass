@@ -1,0 +1,42 @@
+.photography-container
+  display: flex
+  flex-flow: row wrap
+  flex: 1
+  order: 1
+
+  +mq-xs
+    max-width: 94%
+
+  +mq-md
+    max-width: $content-width
+
+.photo-container
+  width: 100%
+  height: auto
+  padding: 0
+  margin: 15px
+
+  img
+    display: block
+    width: 100%
+    object-fit: scale-down
+    padding: 0
+    margin: 0
+
+  +mq-md
+    max-width: $content-width / 2 - 30px
+    max-height: $content-width
+
+  .description
+    display: none
+
+.photo-container-xs
+  @extend .photo-container
+  +mq-md
+    max-width: $content-width / 3
+    height: 100%
+
+.photo-container-md
+  @extend .photo-container
+  +mq-md
+    max-width: $content-width - 250px - 45px
