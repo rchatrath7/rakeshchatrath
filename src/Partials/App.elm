@@ -1,5 +1,6 @@
 module App exposing (..)
 
+import Partials.Model exposing (Model)
 import Partials.Messages exposing (Msg)
 import Partials.Programming exposing (..)
 import Partials.Photography exposing (..)
@@ -22,29 +23,16 @@ import Navigation
 -- indicator value we manually update when state is changed.
 -- { 0: 'Logo', 1: 'Programming', 2: 'Photography', 3: 'Blog', 4: 'Resume'}
 
-type alias Model =
-    { title : String
-    , paths : Array String
-    , description : String
-    , indicator : Int
-    , isDefault : Bool
-    , isProgramming : Bool
-    , isPhotography : Bool
-    , isBlog: Bool
-    , isResume : Bool
-    , hasLeftLink : Bool
-    , isFull : Bool
-    , currentRoute : Navigation.Location
-    , isMobileVisible : Bool
-    }
-
 type alias Flags =
-    { logoPath : String,
-      programmingPath : String,
-      photographyPath : String,
-      blogPath : String,
-      resumePath : String,
-      resume : String
+    { logoPath : String
+    , programmingPath : String
+    , photographyPath : String
+    , blogPath : String
+    , resumePath : String
+    , resume : String
+    , photoPaths : List String
+    , programmingAssetPaths : List String
+    , programmingProjectPaths : List String
     }
 
 type RoutePath
@@ -121,6 +109,9 @@ init flags location =
                                    , flags.resumePath
                                    , flags.resume
                                    ]
+          , photoPaths = flags.photoPaths
+          , programmingAssetPaths = flags.programmingAssetPaths
+          , programmingProjectPaths = flags.programmingProjectPaths
           , description = components.programming.description
           , indicator = components.programming.indicator
           , isDefault = components.programming.isDefault
@@ -144,6 +135,9 @@ init flags location =
                     , flags.resumePath
                     , flags.resume
                     ]
+          , photoPaths = flags.photoPaths
+          , programmingAssetPaths = flags.programmingAssetPaths
+          , programmingProjectPaths = flags.programmingProjectPaths
           , description = components.photography.description
           , indicator = components.photography.indicator
           , isDefault = components.photography.isDefault
@@ -167,6 +161,9 @@ init flags location =
                     , flags.resumePath
                     , flags.resume
                     ]
+          , photoPaths = flags.photoPaths
+          , programmingAssetPaths = flags.programmingAssetPaths
+          , programmingProjectPaths = flags.programmingProjectPaths
           , description = components.blog.description
           , indicator = components.blog.indicator
           , isDefault = components.blog.isDefault
@@ -190,6 +187,9 @@ init flags location =
                     , flags.resumePath
                     , flags.resume
                     ]
+          , photoPaths = flags.photoPaths
+          , programmingAssetPaths = flags.programmingAssetPaths
+          , programmingProjectPaths = flags.programmingProjectPaths
           , description = components.resume.description
           , indicator = components.resume.indicator
           , isDefault = components.resume.isDefault
@@ -213,6 +213,9 @@ init flags location =
                     , flags.resumePath
                     , flags.resume
                     ]
+          , photoPaths = flags.photoPaths
+          , programmingAssetPaths = flags.programmingAssetPaths
+          , programmingProjectPaths = flags.programmingProjectPaths
           , indicator = 0
           , description = components.default.description
           , isDefault = components.default.isDefault
@@ -551,13 +554,13 @@ homePage model =
           [ link [ ("resume", True) ] "Resume" <| slice 6 -1 <| toString <| Array.get 5 (model.paths) ]
       ]
 
-programmingPage : Html Msg
-programmingPage =
-  programmingContent
+programmingPage : Model -> Html Msg
+programmingPage model =
+  programmingContent model
 
-photographyPage : Html Msg
-photographyPage =
-   photographyContent
+photographyPage : Model -> Html Msg
+photographyPage model =
+   photographyContent model
 
 blogPage : Html Msg
 blogPage =
@@ -582,10 +585,10 @@ pageBody model =
         homePage model
 
       ProgrammingRoute ->
-        programmingPage
+        programmingPage model
 
       PhotographyRoute ->
-        photographyPage
+        photographyPage model
 
       BlogRoute ->
         blogPage

@@ -1168,8 +1168,9 @@ li a::before, li a::after {
 .projects-card .content-container h2 a {
   padding: 0;
   margin: 0;
+  text-decoration: underline;
 }
-/* line 282, ../sass/partials/_programming.sass */
+/* line 283, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 span {
   display: block;
   font-family: "Decima Mono";
@@ -1179,24 +1180,25 @@ li a::before, li a::after {
   margin: 0;
 }
 @media (min-width: 320px) {
-  /* line 282, ../sass/partials/_programming.sass */
+  /* line 283, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     letter-spacing: 3px;
   }
 }
 @media (min-width: 480px) {
-  /* line 282, ../sass/partials/_programming.sass */
+  /* line 283, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     font-size: 0.8rem;
   }
 }
-/* line 297, ../sass/partials/_programming.sass */
+/* line 298, ../sass/partials/_programming.sass */
 .projects-card .content-container img {
   display: block;
   margin: auto;
+  width: 100%;
   object-fit: contain;
 }
-/* line 302, ../sass/partials/_programming.sass */
+/* line 304, ../sass/partials/_programming.sass */
 .projects-card .logos-container {
   order: 2;
   display: flex;
@@ -1206,17 +1208,17 @@ li a::before, li a::after {
   padding: 15px;
 }
 
-/* line 310, ../sass/partials/_programming.sass */
+/* line 312, ../sass/partials/_programming.sass */
 .personal {
   border-color: #333332;
 }
 
-/* line 313, ../sass/partials/_programming.sass */
+/* line 315, ../sass/partials/_programming.sass */
 .designhub {
   border-color: #1B549E;
 }
 
-/* line 316, ../sass/partials/_programming.sass */
+/* line 318, ../sass/partials/_programming.sass */
 .ptp {
   border-color: #E2414B;
 }

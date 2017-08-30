@@ -1,5 +1,6 @@
 module Partials.Programming exposing(..)
 
+import Partials.Model exposing (Model)
 import Partials.Messages exposing (Msg)
 
 import Html exposing (Html, div, img, a, section, span, h2, h1, text, p)
@@ -9,6 +10,11 @@ import Dict exposing (Dict)
 import Image exposing (Image)
 import Image.Collection as Collection exposing (Key, Collection)
 import Maybe exposing (Maybe, withDefault)
+
+import Array exposing (Array)
+import List exposing(drop, take)
+import String exposing(slice, join)
+
 
 experiences : Collection
 experiences =
@@ -42,8 +48,13 @@ returnVal : String -> Dict String Image -> Image
 returnVal key collection =
   withDefault  (Image "" 0 0) ( Dict.get key collection )
 
-programmingContent : Html Msg
-programmingContent =
+-- Use index of a 0-indexed list
+-- Returns a string
+getItemFromLexical idx lst =
+  slice 6 -1 <| toString <| Array.get idx <| Array.fromList lst
+
+programmingContent : Model -> Html Msg
+programmingContent model =
   div [ classList [ ( "programming-body", True ) ] ]
       [ section [ id "timeline" ]
               [ div [ classList [ ( "demo-card-wrapper", True ) ] ]
@@ -60,7 +71,9 @@ programmingContent =
                                 ]
                           , div [ classList [ ( "body", True ) ] ]
                                 [ p [] [ text "Recon Sports is a platform that pairs prospective hockey players with college scouts. I improved the existing platform by adding a unit and end-end test framework, a subscription-based payment platform, as well as improved performance of the application by several times." ]
-                                , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "recon" experiences
+                                , img [ src <| getItemFromLexical 4 model.programmingProjectPaths
+                                      , style [ ( "max-width", "350px" ), ( "max-height", "233px" ) ]
+                                      ] []
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
@@ -76,7 +89,9 @@ programmingContent =
                                 ]
                           , div [ classList [ ( "body", True ) ] ]
                                 [ p [] [ text "At Raise, I built a platform to automate their onboarding process. I created an interface in which potential contracters could begin the consultant process by gathering their legal information and generating a variety of forms (e.g. NDA) that could be signed by the client with HelloSign." ]
-                                , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "raise" experiences
+                                , img [ src <| getItemFromLexical 3 model.programmingProjectPaths
+                                      , style [ ( "max-width", "250px" ), ( "max-height", "250px" ) ]
+                                      ] []
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
@@ -92,7 +107,9 @@ programmingContent =
                                 ]
                           , div [ classList [ ( "body", True ) ] ]
                                 [ p [] [ text "I studied the effectiveness of a comprehensive lung cancer committee in reducing the rates of late stage lung cancer cases at a small, community hospital. Here, I used Excel, VBA, and R to find a trend that indicates the lung cancer committee was effective in reducing the amount of late stage lung cancer cases over time." ]
-                                , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "riverside" experiences
+                                , img [ src <| getItemFromLexical 5 model.programmingProjectPaths
+                                      , style [ ( "max-width", "400px" ), ( "max-height", "100px" ) ]
+                                      ] []
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
@@ -108,7 +125,9 @@ programmingContent =
                                 ]
                           , div [ classList [ ( "body", True ) ] ]
                                 [ p [] [ text "When not at work, I like to do a variety of projects. These range from things I might be interested in on the side such as data science to this website, or even fun things I do at hackathons like an app that uses computer vision to monitor a users brushing habits. Look below for a full list of projecst." ]
-                                , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "projects" experiences
+                                , img [ src <| getItemFromLexical 1 model.programmingProjectPaths
+                                      , style [ ( "max-width", "250px" ), ( "max-height", "250px" ) ]
+                                      ] []
                                 ]
                           ]
                     ]
@@ -125,12 +144,20 @@ programmingContent =
                                 , span [ classList [ ( "small", True ) ] ] [ text "2017" ]
                                 ]
                         , p [] [ text "All the code for this website is opensource." ]
-                        , Image.viewImg [ style [ ( "width", "50%" ), ( "height", "50%" ) ] ] <| returnVal "personal" projects
+                        , img [ src <| slice 6 -1 <| toString <| Array.get 0 (model.paths)
+                              , style [ ( "max-width", "200px" ), ( "max-height", "200px" ) ]
+                              ] []
                         ]
                   , div [ classList [ ( "logos-container", True ) ] ]
-                        [ Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "elm" logos
-                        , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "html" logos
-                        , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "sass" logos
+                        [ img [ src <| getItemFromLexical 1 model.programmingAssetPaths
+                              , style [ ( "max-width", "40px" ), ( "max-height", "40px" ) ]
+                              ] []
+                        , img [ src <| getItemFromLexical 2 model.programmingAssetPaths
+                              , style [ ( "max-width", "40px" ), ( "max-height", "40px" ) ]
+                              ] []
+                        , img [ src <| getItemFromLexical 5 model.programmingAssetPaths
+                              , style [ ( "max-width", "40px" ), ( "max-height", "40px" ) ]
+                              ] []
                         ]
                   ]
             , div [ classList [ ( "projects-card", True )
@@ -143,13 +170,23 @@ programmingContent =
                                 , span [ classList [ ( "small", True ) ] ] [ text "2017" ]
                                 ]
                         , p [] [ text "The code for my club's website: DesignHub" ]
-                        , Image.viewImg [ style [ ( "width", "50%" ), ( "height", "50%" ) ] ] <| returnVal "designhub" projects
+                        , img [ src <| getItemFromLexical 0 model.programmingProjectPaths
+                              , style [ ( "max-width", "200px" ), ( "max-height", "200px" ) ]
+                              ] []
                         ]
                   , div [ classList [ ( "logos-container", True ) ] ]
-                        [ Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "elixir" logos
-                        , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "phoenix" logos
-                        , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "react" logos
-                        , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "sass" logos
+                        [ img [ src <| getItemFromLexical 0 model.programmingAssetPaths
+                              , style [ ( "max-width", "40px" ), ( "max-height", "40px" ) ]
+                              ] []
+                        , img [ src <| getItemFromLexical 3 model.programmingAssetPaths
+                              , style [ ( "max-width", "40px" ), ( "max-height", "40px" ) ]
+                              ] []
+                        , img [ src <| getItemFromLexical 4 model.programmingAssetPaths
+                              , style [ ( "max-width", "50px" ), ( "max-height", "50px" ) ]
+                              ] []
+                        , img [ src <| getItemFromLexical 5 model.programmingAssetPaths
+                              , style [ ( "max-width", "40px" ), ( "max-height", "40px" ) ]
+                              ] []
                         ]
                   ]
             , div [ classList [ ( "projects-card", True )
@@ -164,7 +201,9 @@ programmingContent =
                                 , span [ classList [ ( "small", True ) ] ] [ text "2017" ]
                                 ]
                         , p [] [ text "PTPlanner was a business idea we pitched as the only freshman team out of 60 teams in the Randall Family Big Idea competition final round." ]
-                        , Image.viewImg [ style [ ( "width", "100%" ), ( "height", "100%" ) ] ] <| returnVal "ptplanner" projects
+                        , img [ src <| getItemFromLexical 2 model.programmingProjectPaths
+                              , style [ ( "max-width", "200px" ), ( "max-height", "200px" ) ]
+                              ] []
                         ]
                   ]
             ]
