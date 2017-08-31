@@ -1,0 +1,268 @@
+ul
+  display: none
+  list-style-type: none
+  transition: 1s ease-in-out
+  z-index: 1
+
+li
+  float: left
+  transition: 1s ease-in-out
+  height: 100%
+  margin-left: 3px
+  margin-right: 3px
+  opacity: 1
+
+  +mq-md
+
+    @for $i from 1 through 4
+      &:nth-child(#{$i})
+        animation: slide 300ms*$i ease-in-out forwards
+
+  // &:hover
+  //   animation: bounce .5s .5s forwards
+
+  a
+    box-sizing: border-box
+    position: relative
+    padding: .5em
+    height: 100%
+
+    &::before,
+    &::after
+      box-sizing: inherit
+      content: ''
+      position: absolute
+      width: 100%
+      height: 100%
+
+  +mq-md
+    background-color: $bg-dk-grey
+
+@keyframes slide
+  0%
+    transform: translateX(100px)
+  100%
+    transform: translateX(0)
+
+// @keyframes bounce
+//   from, to
+//     transform: scale(1.1)
+//   20%
+//     transform: scale(1.5)
+//   60%
+//     transform: scale(1.4)
+//   80%
+//     transform: scale(1.2)
+//   100%
+//     transform: scale(1.3)
+
+// Draw transitions taken from: https://codepen.io/giana/pen/yYBpVY
+// All credits to this pen.
+
+.draw
+  transition: color .25s ease-in-out
+
+  &::before,
+  &::after
+    // Set border to invisible, so we don't see a 4px border on a 0x0 element before the transition starts
+    border: 2px solid transparent
+    width: 0
+    height: 0
+
+  &::before
+    top: 0
+    left: 0
+
+  &::after
+    top: 0
+    left: 0
+
+  &:hover
+    cursor: pointer
+    opacity: 1
+
+  &:hover::before,
+  &:hover::after
+    width: 100%
+    height: 100%
+
+  &:hover::before
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s
+
+  &:hover::after
+    transition: height 0.25s ease-out, width 0.25s ease-out 0.25s
+
+.draw-programming
+  @extend .draw
+
+  &:hover
+    color: $programming
+    animation: opaque 200ms ease-in-out forwards
+
+  &:hover::before
+    border-top-color: $programming
+    border-right-color: $programming
+
+  &:hover::after
+    border-bottom-color: $programming
+    border-left-color: $programming
+
+.draw-programming-active
+  background-color: $programming
+  color: white
+  transition: .5s ease-in-out
+  position: relative
+  opacity: 1
+
+  +mq-md
+
+    &::after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-top-color: $programming
+      border-width: 10px
+      margin-left: -10px
+
+    &:hover
+      color: white
+
+.draw-photography
+  @extend .draw
+
+  &:hover
+    color: $photography
+
+  &:hover::before
+    border-top-color: $photography
+    border-right-color: $photography
+
+  &:hover::after
+    border-bottom-color: $photography
+    border-left-color: $photography
+
+.draw-photography-active
+  background-color: $photography
+  color: white
+  transition: .5s ease-in-out
+  opacity: 1
+
+  +mq-md
+
+    &::after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-top-color: $photography
+      border-width: 10px
+      margin-left: -10px
+
+  &:hover
+    color: white
+
+.draw-blog
+  @extend .draw
+
+  &:hover
+    color: $blog
+
+  &:hover::before
+    border-top-color: $blog
+    border-right-color: $blog
+
+  &:hover::after
+    border-bottom-color: $blog
+    border-left-color: $blog
+
+.draw-blog-active
+  background-color: $blog
+  color: white
+  transition: .5s ease-in-out
+  opacity: 1
+
+  +mq-md
+    &::after
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-top-color: $blog
+      border-width: 10px
+      margin-left: -10px
+
+
+  &:hover
+    color: white
+
+.draw-resume
+  @extend .draw
+
+  &:hover
+    color: $resume
+
+  &:hover::before
+    border-top-color: $resume
+    border-right-color: $resume
+
+  &:hover::after
+    border-bottom-color: $resume
+    border-left-color: $resume
+
+.navigation
+  width: 100%
+  display: flex
+  align-items: center
+  font-size: 1.2em
+  background-color: $bg-dk-grey
+
+  .fa
+    display: block
+    color: white
+    font-size: 1.5em
+
+  +mq-xs
+    height: auto
+    justify-content: center
+
+  +mq-md
+    height: 5vh
+    justify-content: flex-end
+
+    ul
+      display: inline
+
+    .fa
+      display: none
+
++mq-xs
+  .navigation-mobile-visible
+    flex-direction: column
+    +mq-xs
+      ul
+        display: flex
+        width: 100%
+        height: 100vh
+        flex-direction: column
+        padding: 0
+        margin: 0
+        margin-top: 10px
+
+      li
+        width: 100%
+        text-align: center
+        margin: 0
+        padding: 0

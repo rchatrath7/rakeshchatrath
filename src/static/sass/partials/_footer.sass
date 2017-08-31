@@ -1,0 +1,21 @@
+.footer
+  font-size: 1.5em
+  color: $base-text-color
+  height: $footer-height
+  order: 3
+
+  a
+    padding: 2px
+
+    +mq-md
+      font-size: 2em
+
+    +mq-lg
+      font-size: 1em
+
+  .fa
+    color: $base-text-color
+
+    &:hover
+      cursor: pointer
+      color: lighten($base-text-color, 20)
