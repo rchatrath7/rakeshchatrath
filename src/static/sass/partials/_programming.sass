@@ -226,7 +226,8 @@
     align-items: center
 
   +mq-lg
-    flex-direction: row
+    width: $container-width
+    flex-flow: row wrap
     align-items: baseline
 
 .projects-card
@@ -245,8 +246,8 @@
     max-width: 40%
 
   +mq-lg
-    min-width: $container-width / $project-cols
-    max-width: $container-width / $project-items
+    min-width: $project-card-min-width
+    max-width: $project-card-max-width 
     width: 100%
 
   .content-container
