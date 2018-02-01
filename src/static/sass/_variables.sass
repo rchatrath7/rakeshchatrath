@@ -82,5 +82,10 @@ $timeline-header-color: #fff
 
 // Projects Cards -- Struct
 $project-cols: 4
-$project-items: 4
+$project-items: 3
 $project-card-margin: 10px
+
+$project-card-min-width: $container-width / $project-cols - ($project-cols * $project-card-margin)
+$project-card-max-width: $project-card-min-width
+@if $project-items < $project-cols
+  $project-card-max-width: $container-width / $project-items - ($project-items * $project-card-margin)
