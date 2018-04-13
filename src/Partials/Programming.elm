@@ -131,6 +131,25 @@ programmingContent model =
                                       ] []
                                 ]
                           ]
+
+                    , div [ classList [ ( "demo-card", True )
+                                      , ( "demo-card--step5", True )
+                                      ]
+                          ]
+                          [ div [ classList [ ( "head", True ) ] ]
+                                [ div [ classList [ ( "number-box", True ) ] ]
+                                      [ span [] [ text "2017-18" ] ]
+                                , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Lead Frontend Engineer" ]
+                                        , text "Root Health"
+                                        ]
+                                ]
+                          , div [ classList [ ( "body", True ) ] ]
+                                [ p [] [ text "Root Health is building a smart, AI assistant for personal health care. At Root, I worked as the lead frontend engineer. I consulted with designers and users to both architect existing mockups as well as design new mockups for features. As we gained feedback from users, I iterated on our designs. I also designed the current icongraphy for the logo. Root was built using Ionic and is currently on the Google PlayStore and on Apple's TestFlight platform." ]
+                     ]
+                                , img [ src <| getItemFromLexical 6 model.programmingProjectPaths
+                                      , style [ ( "max-width", "250px" ), ( "max-height", "250px" ) ]
+                                      ] []
+                                ]
                     ]
               ]
       , h1 [ classList [ ( "title-reference", True ) ] ] [ text "Projects" ]
