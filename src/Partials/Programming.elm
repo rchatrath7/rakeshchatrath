@@ -23,6 +23,7 @@ experiences =
     , ( "raise", Image "src/static/img/programming/raise.png" 250 250 )
     , ( "riverside", Image "src/static/img/programming/RHC-x.png" 400 100 )
     , ( "projects", Image "src/static/img/programming/projects.svg" 250 250 )
+    , ( "root", Image "src/static/img/programming/root.svg" 250 250 )
     ]
 
 projects : Collection
