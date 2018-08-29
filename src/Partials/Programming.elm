@@ -24,7 +24,9 @@ experiences =
     , ( "riverside", Image "src/static/img/programming/RHC-x.png" 400 100 )
     , ( "projects", Image "src/static/img/programming/projects.svg" 250 250 )
     , ( "root", Image "src/static/img/programming/root.svg" 225 225 )
-    , ( "shopify", Image "src/static/img/programming/shopify" 300 300 )
+    , ( "shopify", Image "src/static/img/programming/shopify.svg" 300 300 )
+    , ( "wyre", Image "src/static/img/programming/wyre.svg" 300 300 )
+    , ( "upwork", Image "src/static/img/programming/upwork.svg" 300 300 )
     ]
 
 projects : Collection
@@ -84,6 +86,25 @@ programmingContent model =
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
                                 [ div [ classList [ ( "number-box", True ) ] ]
+                                      [ span [] [ text "2018" ] ]
+                                , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Freelance Software Engineer" ]
+                                        , text "Wyre Inc."
+                                        ]
+                                ]
+                          , div [ classList [ ( "body", True ) ] ]
+                                [ p [] [ text "For Wyre I developed tooling to asynchronously accept large Over-The-Counter cryptocurrency trades and then simultaneously commit new trades at a margin with a designated counterparty." ]
+                                , img [ src <| getItemFromLexical 9 model.programmingProjectPaths
+                                      , style [ ( "max-width", "300px" ), ( "max-height", "300px" ) ]
+                                      , classList [ ( "centered", True ) ]
+                                      ] []
+                                ]
+                          ]
+                    , div [ classList [ ( "demo-card", True )
+                                      , ( "demo-card--step3", True )
+                                      ]
+                          ]
+                          [ div [ classList [ ( "head", True ) ] ]
+                                [ div [ classList [ ( "number-box", True ) ] ]
                                       [ span [] [ text "2017-18" ] ]
                                 , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Lead Frontend Engineer" ]
                                         , text "Root Health"
@@ -97,7 +118,7 @@ programmingContent model =
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step3", True )
+                                      , ( "demo-card--step4", True )
                                       ]
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
@@ -115,7 +136,7 @@ programmingContent model =
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step4", True )
+                                      , ( "demo-card--step5", True )
                                       ]
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
@@ -133,7 +154,7 @@ programmingContent model =
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step5", True )
+                                      , ( "demo-card--step6", True )
                                       ]
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
@@ -146,12 +167,32 @@ programmingContent model =
                           , div [ classList [ ( "body", True ) ] ]
                                 [ p [] [ text "I studied the effectiveness of a comprehensive lung cancer committee in reducing the rates of late stage lung cancer cases at a small, community hospital. Here, I used Excel, VBA, and R to find a trend that indicates the lung cancer committee was effective in reducing the amount of late stage lung cancer cases over time." ]
                                 , img [ src <| getItemFromLexical 5 model.programmingProjectPaths
-                                      , style [ ( "max-width", "400px" ), ( "max-height", "100px" ) ]
+                                      , style [ ( "max-width", "400px" ), ( "max-height", "225px" ) ]
+                                      , classList [ ( "centered", True ) ]
                                       ] []
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step6", True )
+                                      , ( "demo-card--step7", True )
+                                      ]
+                          ]
+                          [ div [ classList [ ( "head", True ) ] ]
+                                [ div [ classList [ ( "number-box", True ) ] ]
+                                      [ span [] [ text "2018-PRESENT" ] ]
+                                , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Freelance Software Engineer" ]
+                                        , text "Upwork"
+                                        ]
+                                ]
+                          , div [ classList [ ( "body", True ) ] ]
+                                [ p [] [ text "When in school or during lighter periods of work, I pick up additional jobs as a freelancer. I primarily use Upwork as my freelancing platform of choice. If interested in getting in touch or pursuing a relationship please" ], a [ href "https://www.upwork.com/o/profiles/users/_~0139cca87407cb9e9b/" ] [ text "view my Upwork profile." ]
+                                , img [ src <| getItemFromLexical 8 model.programmingProjectPaths
+                                      , style [ ( "max-width", "250px" ), ( "max-height", "250px" ) ]
+                                      , classList [ ( "centered", True ) ]
+                                      ] []
+                                ]
+                          ]
+                    , div [ classList [ ( "demo-card", True )
+                                      , ( "demo-card--step8", True )
                                       ]
                           ]
                           [ div [ classList [ ( "head", True ) ] ]

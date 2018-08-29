@@ -829,7 +829,7 @@ li a::before, li a::after {
     display: flex;
     flex-flow: row wrap;
     width: 1470px;
-    height: 2310px;
+    height: 3080px;
     margin: 0 auto;
   }
 }
@@ -874,6 +874,22 @@ li a::before, li a::after {
 /* line 68, ../sass/partials/_programming.sass */
 #timeline .demo-card:nth-child(4) {
   animation: drop 1600ms ease-in-out forwards;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(5) {
+  animation: drop 2000ms ease-in-out forwards;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(6) {
+  animation: drop 2400ms ease-in-out forwards;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(7) {
+  animation: drop 2800ms ease-in-out forwards;
+}
+/* line 68, ../sass/partials/_programming.sass */
+#timeline .demo-card:nth-child(8) {
+  animation: drop 3200ms ease-in-out forwards;
 }
 @keyframes drop {
   0% {
@@ -1025,62 +1041,90 @@ li a::before, li a::after {
   padding: none;
 }
 /* line 192, ../sass/partials/_programming.sass */
+#timeline .demo-card .body .centered {
+  vertical-align: middle;
+  height: 100%;
+}
+/* line 196, ../sass/partials/_programming.sass */
 #timeline .demo-card .body img {
   display: block;
   margin: auto;
   width: 100%;
   object-fit: contain;
 }
-/* line 199, ../sass/partials/_programming.sass */
+/* line 202, ../sass/partials/_programming.sass */
+#timeline .demo-card .body a {
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  font-weight: bold;
+}
+/* line 209, ../sass/partials/_programming.sass */
 #timeline .demo-card--step1 {
   background-color: #95BE46;
 }
-/* line 204, ../sass/partials/_programming.sass */
+/* line 214, ../sass/partials/_programming.sass */
 #timeline .demo-card--step1 .head::after {
   border-color: #95BE46;
 }
-/* line 199, ../sass/partials/_programming.sass */
+/* line 209, ../sass/partials/_programming.sass */
 #timeline .demo-card--step2 {
+  background-color: #0055FF;
+}
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card--step2 .head::after {
+  border-color: #0055FF;
+}
+/* line 209, ../sass/partials/_programming.sass */
+#timeline .demo-card--step3 {
   background-color: #20ACFE;
 }
-/* line 204, ../sass/partials/_programming.sass */
-#timeline .demo-card--step2 .head::after {
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card--step3 .head::after {
   border-color: #20ACFE;
 }
-/* line 199, ../sass/partials/_programming.sass */
-#timeline .demo-card--step3 {
+/* line 209, ../sass/partials/_programming.sass */
+#timeline .demo-card--step4 {
   background-color: #F58634;
 }
-/* line 204, ../sass/partials/_programming.sass */
-#timeline .demo-card--step3 .head::after {
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card--step4 .head::after {
   border-color: #F58634;
 }
-/* line 199, ../sass/partials/_programming.sass */
-#timeline .demo-card--step4 {
+/* line 209, ../sass/partials/_programming.sass */
+#timeline .demo-card--step5 {
   background-color: #50BD9D;
 }
-/* line 204, ../sass/partials/_programming.sass */
-#timeline .demo-card--step4 .head::after {
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card--step5 .head::after {
   border-color: #50BD9D;
 }
-/* line 199, ../sass/partials/_programming.sass */
-#timeline .demo-card--step5 {
+/* line 209, ../sass/partials/_programming.sass */
+#timeline .demo-card--step6 {
   background-color: #149BAD;
 }
-/* line 204, ../sass/partials/_programming.sass */
-#timeline .demo-card--step5 .head::after {
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card--step6 .head::after {
   border-color: #149BAD;
 }
-/* line 199, ../sass/partials/_programming.sass */
-#timeline .demo-card--step6 {
+/* line 209, ../sass/partials/_programming.sass */
+#timeline .demo-card--step7 {
+  background-color: #6FDA44;
+}
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card--step7 .head::after {
+  border-color: #6FDA44;
+}
+/* line 209, ../sass/partials/_programming.sass */
+#timeline .demo-card--step8 {
   background-color: #0044b5;
 }
-/* line 204, ../sass/partials/_programming.sass */
-#timeline .demo-card--step6 .head::after {
+/* line 214, ../sass/partials/_programming.sass */
+#timeline .demo-card--step8 .head::after {
   border-color: #0044b5;
 }
 
-/* line 207, ../sass/partials/_programming.sass */
+/* line 217, ../sass/partials/_programming.sass */
 .title-reference {
   display: none;
   font-family: "Decima Mono";
@@ -1089,13 +1133,13 @@ li a::before, li a::after {
   letter-spacing: 2px;
 }
 @media (min-width: 1320px) {
-  /* line 207, ../sass/partials/_programming.sass */
+  /* line 217, ../sass/partials/_programming.sass */
   .title-reference {
     display: block;
   }
 }
 
-/* line 218, ../sass/partials/_programming.sass */
+/* line 228, ../sass/partials/_programming.sass */
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -1104,13 +1148,13 @@ li a::before, li a::after {
   order: 5;
 }
 @media (min-width: 720px) {
-  /* line 218, ../sass/partials/_programming.sass */
+  /* line 228, ../sass/partials/_programming.sass */
   .projects-container {
     align-items: center;
   }
 }
 @media (min-width: 1320px) {
-  /* line 218, ../sass/partials/_programming.sass */
+  /* line 228, ../sass/partials/_programming.sass */
   .projects-container {
     width: 1470px;
     flex-flow: row wrap;
@@ -1118,7 +1162,7 @@ li a::before, li a::after {
   }
 }
 
-/* line 233, ../sass/partials/_programming.sass */
+/* line 243, ../sass/partials/_programming.sass */
 .projects-card {
   display: flex;
   flex-direction: column;
@@ -1128,27 +1172,27 @@ li a::before, li a::after {
   border-top: solid 3px;
 }
 @media (min-width: 480px) {
-  /* line 233, ../sass/partials/_programming.sass */
+  /* line 243, ../sass/partials/_programming.sass */
   .projects-card {
     max-width: 60%;
     box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
   }
 }
 @media (min-width: 720px) {
-  /* line 233, ../sass/partials/_programming.sass */
+  /* line 243, ../sass/partials/_programming.sass */
   .projects-card {
     max-width: 40%;
   }
 }
 @media (min-width: 1320px) {
-  /* line 233, ../sass/partials/_programming.sass */
+  /* line 243, ../sass/partials/_programming.sass */
   .projects-card {
     min-width: 327.5px;
     max-width: 460px;
     width: 100%;
   }
 }
-/* line 253, ../sass/partials/_programming.sass */
+/* line 263, ../sass/partials/_programming.sass */
 .projects-card .content-container {
   padding: 15px;
   order: 1;
@@ -1158,7 +1202,7 @@ li a::before, li a::after {
   display: flex;
   flex-direction: column;
 }
-/* line 262, ../sass/partials/_programming.sass */
+/* line 272, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 {
   text-transform: uppercase;
   font-family: "Decima Pro";
@@ -1170,24 +1214,24 @@ li a::before, li a::after {
   line-height: 1rem;
 }
 @media (min-width: 320px) {
-  /* line 262, ../sass/partials/_programming.sass */
+  /* line 272, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 {
     font-size: 1.2rem;
   }
 }
 @media (min-width: 480px) {
-  /* line 262, ../sass/partials/_programming.sass */
+  /* line 272, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 {
     line-height: 1.2rem;
   }
 }
-/* line 278, ../sass/partials/_programming.sass */
+/* line 288, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 a {
   padding: 0;
   margin: 0;
   text-decoration: underline;
 }
-/* line 284, ../sass/partials/_programming.sass */
+/* line 294, ../sass/partials/_programming.sass */
 .projects-card .content-container h2 span {
   display: block;
   font-family: "Decima Mono";
@@ -1197,25 +1241,25 @@ li a::before, li a::after {
   margin: 0;
 }
 @media (min-width: 320px) {
-  /* line 284, ../sass/partials/_programming.sass */
+  /* line 294, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     letter-spacing: 3px;
   }
 }
 @media (min-width: 480px) {
-  /* line 284, ../sass/partials/_programming.sass */
+  /* line 294, ../sass/partials/_programming.sass */
   .projects-card .content-container h2 span {
     font-size: 0.8rem;
   }
 }
-/* line 299, ../sass/partials/_programming.sass */
+/* line 309, ../sass/partials/_programming.sass */
 .projects-card .content-container img {
   display: block;
   margin: auto;
   width: 100%;
   object-fit: contain;
 }
-/* line 305, ../sass/partials/_programming.sass */
+/* line 315, ../sass/partials/_programming.sass */
 .projects-card .logos-container {
   order: 2;
   display: flex;
@@ -1225,17 +1269,17 @@ li a::before, li a::after {
   padding: 15px;
 }
 
-/* line 313, ../sass/partials/_programming.sass */
+/* line 323, ../sass/partials/_programming.sass */
 .personal {
   border-color: #333332;
 }
 
-/* line 316, ../sass/partials/_programming.sass */
+/* line 326, ../sass/partials/_programming.sass */
 .designhub {
   border-color: #1B549E;
 }
 
-/* line 319, ../sass/partials/_programming.sass */
+/* line 329, ../sass/partials/_programming.sass */
 .ptp {
   border-color: #E2414B;
 }

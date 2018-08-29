@@ -64,7 +64,7 @@
     flex: 1 0 0
     transition: 1s ease-in-out
 
-    @for $i from 1 through 4
+    @for $i from 1 through $items
       &:nth-child(#{$i})
         animation: drop 400ms*$i ease-in-out forwards
 
@@ -189,15 +189,25 @@
         margin: none
         padding: none
 
+      .centered
+        vertical-align: middle
+        height: 100%
+
       img
         display: block
         margin: auto
         width: 100%
         object-fit: contain
 
+      a
+        padding: 0
+        margin: 0
+        text-decoration: underline
+        font-weight: bold
+
     @for $i from 1 through $items
       &--step#{$i}
-        $color: nth($colors, ($i - 1) % 6 + 1)
+        $color: nth($colors, ($i - 1) % $items + 1)
 
         background-color: $color
 
