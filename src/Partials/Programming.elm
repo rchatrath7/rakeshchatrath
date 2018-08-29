@@ -23,7 +23,8 @@ experiences =
     , ( "raise", Image "src/static/img/programming/raise.png" 250 250 )
     , ( "riverside", Image "src/static/img/programming/RHC-x.png" 400 100 )
     , ( "projects", Image "src/static/img/programming/projects.svg" 250 250 )
-    , ( "root", Image "src/static/img/programming/root.svg" 250 250 )
+    , ( "root", Image "src/static/img/programming/root.svg" 225 225 )
+    , ( "shopify", Image "src/static/img/programming/shopify" 300 300 )
     ]
 
 projects : Collection
@@ -65,6 +66,42 @@ programmingContent model =
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
                                 [ div [ classList [ ( "number-box", True ) ] ]
+                                      [ span [] [ text "2018" ] ]
+                                , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Data Engineering Intern" ]
+                                        , text "Shopify"
+                                        ]
+                                ]
+                          , div [ classList [ ( "body", True ) ] ]
+                                [ p [] [ text "At Shopify, I worked on a dimensional model builer sitting on top of Spark. I worked on a variety of features including one to retain snapshots of datasets before they're deleted by a cleaner to save space, making our Mock class of Google Cloud Storage much more flexible to support dynamic google cloud buckets as well as handle creation and cleanup of temp directories. I also created benchmarks for incrementally created and resolved datasets. To do this, we generated ~6M records of data inserted in memeory with spark as a fact table (following Kimball's STAR topology). The fact table was resolved against two other dynamically generated dimensions. During my tenure at Shopify, I worked primarily in Python and Spark. I also used some Hadoop and Google Cloud Platform." ]
+                                , img [ src <| getItemFromLexical 7 model.programmingProjectPaths
+                                      , style [ ( "max-width", "300px" ), ( "max-height", "300px" ) ]
+                                      ] []
+                                ]
+                          ]
+                    , div [ classList [ ( "demo-card", True )
+                                      , ( "demo-card--step2", True )
+                                      ]
+                          ]
+                          [ div [ classList [ ( "head", True ) ] ]
+                                [ div [ classList [ ( "number-box", True ) ] ]
+                                      [ span [] [ text "2017-18" ] ]
+                                , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Lead Frontend Engineer" ]
+                                        , text "Root Health"
+                                        ]
+                                ]
+                          , div [ classList [ ( "body", True ) ] ]
+                                [ p [] [ text "Root Health is building a smart, AI assistant for personal health care. At Root, I worked as the lead frontend engineer. I consulted with designers and users to both architect existing mockups as well as design new mockups for features. As we gained feedback from users, I iterated on our designs. I also designed the current icongraphy for the logo. Root was built using Ionic and is currently on the Google PlayStore and on Apple's TestFlight platform." ]
+                                , img [ src <| getItemFromLexical 6 model.programmingProjectPaths
+                                      , style [ ( "max-width", "225px" ), ( "max-height", "225px" ) ]
+                                      ] []
+                                ]
+                          ]
+                    , div [ classList [ ( "demo-card", True )
+                                      , ( "demo-card--step3", True )
+                                      ]
+                          ]
+                          [ div [ classList [ ( "head", True ) ] ]
+                                [ div [ classList [ ( "number-box", True ) ] ]
                                       [ span [] [ text "2016-17" ] ]
                                 , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Web Development Consultant" ]
                                         , text "Recon Sports Consultants"
@@ -78,7 +115,7 @@ programmingContent model =
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step2", True )
+                                      , ( "demo-card--step4", True )
                                       ]
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
@@ -96,7 +133,7 @@ programmingContent model =
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step3", True )
+                                      , ( "demo-card--step5", True )
                                       ]
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
@@ -114,7 +151,7 @@ programmingContent model =
                                 ]
                           ]
                     , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step4", True )
+                                      , ( "demo-card--step6", True )
                                       ]
                           ]
                           [ div [ classList [ ( "head", True ) ] ]
@@ -131,25 +168,6 @@ programmingContent model =
                                       ] []
                                 ]
                           ]
-
-                    , div [ classList [ ( "demo-card", True )
-                                      , ( "demo-card--step5", True )
-                                      ]
-                          ]
-                          [ div [ classList [ ( "head", True ) ] ]
-                                [ div [ classList [ ( "number-box", True ) ] ]
-                                      [ span [] [ text "2017-18" ] ]
-                                , h2 [] [ span [ classList [ ( "small", True ) ] ] [ text "Lead Frontend Engineer" ]
-                                        , text "Root Health"
-                                        ]
-                                ]
-                          , div [ classList [ ( "body", True ) ] ]
-                                [ p [] [ text "Root Health is building a smart, AI assistant for personal health care. At Root, I worked as the lead frontend engineer. I consulted with designers and users to both architect existing mockups as well as design new mockups for features. As we gained feedback from users, I iterated on our designs. I also designed the current icongraphy for the logo. Root was built using Ionic and is currently on the Google PlayStore and on Apple's TestFlight platform." ]
-                     ]
-                                , img [ src <| getItemFromLexical 6 model.programmingProjectPaths
-                                      , style [ ( "max-width", "250px" ), ( "max-height", "250px" ) ]
-                                      ] []
-                                ]
                     ]
               ]
       , h1 [ classList [ ( "title-reference", True ) ] ] [ text "Projects" ]

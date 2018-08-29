@@ -829,7 +829,7 @@ li a::before, li a::after {
     display: flex;
     flex-flow: row wrap;
     width: 1470px;
-    height: 1540px;
+    height: 2310px;
     margin: 0 auto;
   }
 }
@@ -1033,34 +1033,50 @@ li a::before, li a::after {
 }
 /* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step1 {
-  background-color: #F58634;
+  background-color: #95BE46;
 }
 /* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step1 .head::after {
-  border-color: #F58634;
+  border-color: #95BE46;
 }
 /* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step2 {
-  background-color: #50BD9D;
+  background-color: #20ACFE;
 }
 /* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step2 .head::after {
-  border-color: #50BD9D;
+  border-color: #20ACFE;
 }
 /* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step3 {
-  background-color: #149BAD;
+  background-color: #F58634;
 }
 /* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step3 .head::after {
-  border-color: #149BAD;
+  border-color: #F58634;
 }
 /* line 199, ../sass/partials/_programming.sass */
 #timeline .demo-card--step4 {
-  background-color: #0044b5;
+  background-color: #50BD9D;
 }
 /* line 204, ../sass/partials/_programming.sass */
 #timeline .demo-card--step4 .head::after {
+  border-color: #50BD9D;
+}
+/* line 199, ../sass/partials/_programming.sass */
+#timeline .demo-card--step5 {
+  background-color: #149BAD;
+}
+/* line 204, ../sass/partials/_programming.sass */
+#timeline .demo-card--step5 .head::after {
+  border-color: #149BAD;
+}
+/* line 199, ../sass/partials/_programming.sass */
+#timeline .demo-card--step6 {
+  background-color: #0044b5;
+}
+/* line 204, ../sass/partials/_programming.sass */
+#timeline .demo-card--step6 .head::after {
   border-color: #0044b5;
 }
 

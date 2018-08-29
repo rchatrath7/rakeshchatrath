@@ -197,7 +197,7 @@
 
     @for $i from 1 through $items
       &--step#{$i}
-        $color: nth($colors, ($i - 1) % 4 + 1)
+        $color: nth($colors, ($i - 1) % 6 + 1)
 
         background-color: $color
 
@@ -247,7 +247,7 @@
 
   +mq-lg
     min-width: $project-card-min-width
-    max-width: $project-card-max-width 
+    max-width: $project-card-max-width
     width: 100%
 
   .content-container

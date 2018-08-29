@@ -12,7 +12,7 @@ blogContent =
                  , href "http://blog.rakeshchatrath.me/why-i-started-writing/" ]
                  [ text "Why I started writing" ]
             ]
-        p [] [ a [ classList [ ( "blog", True ) ]
+      , p [] [ a [ classList [ ( "blog", True ) ]
                  , href "https://blog.rakeshchatrath.me/intro-to-web-development/" ]
                  [ text "Intro to Web Development Part 1" ]
             ]
